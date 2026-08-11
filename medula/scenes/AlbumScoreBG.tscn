@@ -1,7 +1,7 @@
 [gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://medula/scenes/Credits.tscn" type="PackedScene" id=1]
-[ext_resource path="res://GothamMedium.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://medula/fonts/GothamMedium.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://medula/sfx/cheer/tulla-luana-grito-mortal.mp3" type="AudioStream" id=3]
 [ext_resource path="res://medula/sfx/firework_achieve.mp3" type="AudioStream" id=4]
 [ext_resource path="res://medula/sfx/cheer/maria-laugh.mp3" type="AudioStream" id=5]
@@ -12,7 +12,7 @@
 [ext_resource path="res://medula/sfx/ohpalhaca.mp3" type="AudioStream" id=10]
 [ext_resource path="res://medula/sfx/cheer/maria-agora-sim-vou-flodar.mp3" type="AudioStream" id=11]
 [ext_resource path="res://medula/sfx/cheer/rojãocheer.mp3" type="AudioStream" id=12]
-[ext_resource path="res://songs/nonecover.png" type="Texture" id=13]
+[ext_resource path="res://songs/nonecover.jpg" type="Texture" id=13]
 [ext_resource path="res://medula/sfx/cheer/maria-cururu-tchauzinho-ta-bloqueado.mp3" type="AudioStream" id=14]
 [ext_resource path="res://medula/sfx/cheer/tulla-grito-de-crise-2.mp3" type="AudioStream" id=15]
 [ext_resource path="res://medula/scenes/AlbumScoreBG.gd" type="Script" id=16]
@@ -911,7 +911,6 @@ margin_left = -114.0
 margin_top = 77.0
 margin_right = 114.0
 margin_bottom = 305.0
-texture = ExtResource( 13 )
 expand = true
 
 [node name="CoverBG" type="ColorRect" parent="CoverDeco"]

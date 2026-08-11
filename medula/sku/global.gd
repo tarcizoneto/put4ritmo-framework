@@ -314,7 +314,7 @@ func load_save():
 			hiscores[i] = 0
 			progressDifficulty[i] = 'm'
 		
-		songlist = ['dummy3'] # músicas defaults
+		songlist = ['dummy3'] # músc
 		cupomLista = 10
 		cupomMusica = 150
 		mariedas = 1000

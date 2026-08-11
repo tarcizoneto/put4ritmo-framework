@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://GothamMedium.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://medula/fonts/GothamMedium.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://medula/tex/unlock_part.png" type="Texture" id=2]
 
 [sub_resource type="StyleBoxFlat" id=6]

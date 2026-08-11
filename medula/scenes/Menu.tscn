@@ -1,7 +1,7 @@
 [gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://medula/scenes/Menu.gd" type="Script" id=1]
-[ext_resource path="res://GothamMedium.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://medula/fonts/GothamMedium.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://medula/tex/mariedas.png" type="Texture" id=3]
 [ext_resource path="res://medula/tex/easymedal.png" type="Texture" id=4]
 [ext_resource path="res://medula/tex/mediummedal.png" type="Texture" id=5]
@@ -755,6 +755,8 @@ __meta__ = {
 modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_right = 1080.0
+margin_bottom = 1920.0
 
 [node name="Cover" type="TextureRect" parent="Main"]
 modulate = Color( 1, 1, 1, 0 )
@@ -792,8 +794,8 @@ color = Color( 0, 0, 0, 0.615686 )
 [node name="Title" type="Label" parent="Main"]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -1080.0
 margin_top = 350.0
+margin_right = 1080.0
 margin_bottom = 431.0
 custom_fonts/font = SubResource( 2 )
 text = "SongTitle"
@@ -923,10 +925,20 @@ amo que amo."
 
 [node name="VersusMode" parent="Store" index="1"]
 visible = false
+margin_left = 131.5
+margin_top = 846.0
+margin_right = 948.5
+margin_bottom = 1074.0
 
 [node name="CoverClip" parent="Store/VersusMode" index="4"]
-margin_top = -0.0680084
-margin_bottom = -0.0680084
+margin_left = 0.0
+margin_top = 178.0
+margin_right = 817.0
+margin_bottom = 178.0
+
+[node name="Cover" parent="Store/VersusMode/CoverClip" index="0"]
+margin_left = 102.5
+margin_right = 714.5
 
 [node name="AnimationPlayer" parent="Store/UpgradesBG" index="1"]
 anims/RESET = SubResource( 30 )
@@ -1095,10 +1107,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -400.0
-margin_top = 960.0
-margin_right = 400.0
-margin_bottom = 1760.0
+margin_left = 140.0
+margin_top = 1920.0
+margin_right = 940.0
+margin_bottom = 2720.0
 rect_rotation = 360.0
 rect_scale = Vector2( 0.5, 0.5 )
 rect_pivot_offset = Vector2( 400, 400 )

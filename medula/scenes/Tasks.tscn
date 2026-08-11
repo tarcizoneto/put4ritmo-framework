@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://medula/scenes/Tasks.gd" type="Script" id=1]
-[ext_resource path="res://GothamMedium.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://medula/fonts/GothamMedium.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://medula/sfx/firework_achieve.mp3" type="AudioStream" id=4]
 [ext_resource path="res://medula/scenes/Task_inList.tscn" type="PackedScene" id=6]
 

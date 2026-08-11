@@ -1,6 +1,6 @@
 [gd_scene load_steps=68 format=2]
 
-[ext_resource path="res://GothamMedium.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://medula/fonts/GothamMedium.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://medula/tex/totem_ygona.png" type="Texture" id=2]
 [ext_resource path="res://medula/sfx/sucesso_total.mp3" type="AudioStream" id=3]
 [ext_resource path="res://medula/sfx/frases-desapontado/tulla-passam_no_enem.mp3" type="AudioStream" id=4]
