@@ -1,0 +1,1188 @@
+[gd_scene load_steps=41 format=2]
+
+[ext_resource path="res://medula/scenes/Menu.gd" type="Script" id=1]
+[ext_resource path="res://GothamMedium.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://medula/tex/mariedas.png" type="Texture" id=3]
+[ext_resource path="res://medula/tex/easymedal.png" type="Texture" id=4]
+[ext_resource path="res://medula/tex/mediummedal.png" type="Texture" id=5]
+[ext_resource path="res://medula/tex/hardmedal.png" type="Texture" id=6]
+[ext_resource path="res://medula/tex/cupom_musica.png" type="Texture" id=7]
+[ext_resource path="res://medula/tex/cupom_lista.png" type="Texture" id=8]
+[ext_resource path="res://medula/scenes/Store.tscn" type="PackedScene" id=9]
+[ext_resource path="res://medula/sfx/intro-put4.mp3" type="AudioStream" id=10]
+[ext_resource path="res://medula/scenes/Tasks.tscn" type="PackedScene" id=11]
+[ext_resource path="res://medula/tex/config.png" type="Texture" id=12]
+[ext_resource path="res://medula/tex/p4s_white.png" type="Texture" id=13]
+[ext_resource path="res://medula/sfx/intro-sparkle.mp3" type="AudioStream" id=14]
+
+[sub_resource type="Animation" id=7]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "leftnright"
+length = 60.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 30 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( -840, 0 ) ]
+}
+
+[sub_resource type="DynamicFont" id=26]
+size = 65
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 90
+extra_spacing_char = 10
+font_data = ExtResource( 2 )
+
+[sub_resource type="Animation" id=28]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 350 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=32]
+resource_name = "hardSong"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 0, 0, 1 ) ]
+}
+
+[sub_resource type="Animation" id=33]
+resource_name = "normalSong"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="DynamicFont" id=6]
+size = 90
+outline_size = 7
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 73
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=11]
+size = 73
+outline_size = 5
+font_data = ExtResource( 2 )
+
+[sub_resource type="Animation" id=30]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("../../Mariedas:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../../Mariedas:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=42]
+resource_name = "enoughCupom"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("../../CupomListaHolder:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.164938, 1 ),
+"update": 0,
+"values": [ Vector2( 1.5, 1 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../../CupomListaHolder:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.307786, 1 ),
+"update": 0,
+"values": [ Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="DynamicFont" id=9]
+size = 65
+outline_size = 7
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=29]
+size = 65
+outline_size = 7
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=35]
+size = 65
+font_data = ExtResource( 2 )
+
+[sub_resource type="Theme" id=31]
+
+[sub_resource type="DynamicFont" id=1]
+size = 89
+font_data = ExtResource( 2 )
+
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Main:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Main:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Main:rect_size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1080, 1920 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Main/Cover:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Main/Difficulty:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Mariedas:rect_scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Mariedas/Amount:rect_scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=40]
+resource_name = "cupom_musicaglow"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("CupomMusicaHolder:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.5, 1.5 ),
+"transitions": PoolRealArray( 0.34151, 1 ),
+"update": 0,
+"values": [ Vector2( 2, 2 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CupomMusicaHolder/Amount:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.5, 1.2, 2.5 ),
+"transitions": PoolRealArray( 3.24901, 0.965936, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.75, 1.75 ), Vector2( 1, 1 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 1.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ false, null ],
+"method": "reloadInfo"
+} ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "enter"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Main:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.138696, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 512 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Main:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.435275, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Main/Cover:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.6, 2 ),
+"transitions": PoolRealArray( 0.366021, 0.366021, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.662745 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Main/Difficulty:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=41]
+resource_name = "mariedasglow"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Mariedas:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.5, 1.5 ),
+"transitions": PoolRealArray( 0.34151, 1 ),
+"update": 0,
+"values": [ Vector2( 2, 2 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Mariedas/Amount:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.5, 1.3, 2.5 ),
+"transitions": PoolRealArray( 3.24901, 0.965936, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.75, 1.75 ), Vector2( 1, 1 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 1.3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ false, null ],
+"method": "reloadInfo"
+} ]
+}
+
+[sub_resource type="Animation" id=36]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Logo:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0.5, 0.5 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AudioStreamPlayer:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Logo:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 140, 1920 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath(".:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("AudioStreamPlayer:stream")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ ExtResource( 10 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Logo:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath(".:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=37]
+resource_name = "main"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Logo:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.7, 1 ),
+"transitions": PoolRealArray( 8.28212, 0.210224, 0.535887, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0.5, 0.481 ), Vector2( 1.25, 1.25 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AudioStreamPlayer:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.3, 0.8, 1.1, 2.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 2.6, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("AudioStreamPlayer:stream")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 10 ), ExtResource( 14 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Logo:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1, 1.2, 1.7 ),
+"transitions": PoolRealArray( 1, 1, 2.21914, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 0.967773, 0.967773, 0.180512, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/5/type = "method"
+tracks/5/path = NodePath("..")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 1.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [ true ],
+"method": "introLogoRunning"
+}, {
+"args": [ false ],
+"method": "introLogoRunning"
+} ]
+}
+
+[sub_resource type="Animation" id=38]
+resource_name = "transition-in"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Logo:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.7, 1 ),
+"transitions": PoolRealArray( 8.28212, 0.210224, 0.535887, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0.5, 0.481 ), Vector2( 1.25, 1.25 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Logo:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1, 1.8, 2.8 ),
+"transitions": PoolRealArray( 4.14106, 4.14106, 4.14106, 1 ),
+"update": 0,
+"values": [ Vector2( 140, 560 ), Vector2( 140, 560 ), Vector2( 140, 560 ), Vector2( 140, 1920 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 2.6, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Logo:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1, 1.2, 1.7 ),
+"transitions": PoolRealArray( 1, 1, 2.21914, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 0.967773, 0.967773, 0.180512, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=39]
+resource_name = "transition-off"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Logo:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.7, 1 ),
+"transitions": PoolRealArray( 8.28212, 0.210224, 0.535887, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0.5, 0.481 ), Vector2( 1.25, 1.25 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Logo:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1, 1.8, 2.8 ),
+"transitions": PoolRealArray( 4.14106, 4.14106, 4.14106, 1 ),
+"update": 0,
+"values": [ Vector2( 140, 560 ), Vector2( 140, 560 ), Vector2( 140, 560 ), Vector2( 140, 1920 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 2.6, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Logo:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1, 1.2, 1.7 ),
+"transitions": PoolRealArray( 1, 1, 2.21914, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 0.967773, 0.967773, 0.180512, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("AudioStreamPlayer:stream")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 3 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 10 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("AudioStreamPlayer:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0.4, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath(".:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.2, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="DynamicFont" id=34]
+size = 64
+font_data = ExtResource( 2 )
+
+[node name="Menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 54.0, 165.0 ]
+}
+
+[node name="Main" type="Control" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Cover" type="TextureRect" parent="Main"]
+modulate = Color( 1, 1, 1, 0 )
+margin_right = 1920.0
+margin_bottom = 1920.0
+expand = true
+
+[node name="anim" type="AnimationPlayer" parent="Main/Cover"]
+autoplay = "leftnright"
+method_call_mode = 1
+anims/RESET = SubResource( 7 )
+anims/leftnright = SubResource( 8 )
+
+[node name="Play" type="Button" parent="Main"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -540.0
+margin_top = -636.0
+margin_right = 540.0
+margin_bottom = -504.0
+custom_fonts/font = SubResource( 26 )
+text = "JOGAR "
+
+[node name="InfoBG" type="ColorRect" parent="Main"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -540.0
+margin_top = 246.0
+margin_right = 540.0
+margin_bottom = 551.0
+color = Color( 0, 0, 0, 0.615686 )
+
+[node name="Title" type="Label" parent="Main"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -1080.0
+margin_top = 350.0
+margin_bottom = 431.0
+custom_fonts/font = SubResource( 2 )
+text = "SongTitle"
+align = 1
+valign = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Main/Title"]
+autoplay = "RESET"
+anims/RESET = SubResource( 28 )
+anims/hardSong = SubResource( 32 )
+anims/normalSong = SubResource( 33 )
+
+[node name="Tween" type="Tween" parent="Main/Title"]
+
+[node name="HiScore" type="Label" parent="Main"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -532.0
+margin_top = 257.0
+margin_right = 548.0
+margin_bottom = 338.0
+custom_fonts/font = SubResource( 6 )
+text = "0000"
+valign = 1
+
+[node name="Artist" type="Label" parent="Main"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -540.0
+margin_top = 450.0
+margin_right = 540.0
+margin_bottom = 531.0
+custom_colors/font_color = Color( 0.588235, 0.588235, 0.588235, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "SongArtist"
+align = 1
+
+[node name="Difficulty" type="Label" parent="Main"]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 8.0
+margin_top = -703.0
+margin_right = 8.0
+margin_bottom = -622.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 1, 0.592157, 0, 1 )
+custom_fonts/font = SubResource( 11 )
+text = "Easy"
+
+[node name="Medals" type="HBoxContainer" parent="Main"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 61.0
+margin_top = -752.0
+margin_right = 679.0
+margin_bottom = -552.0
+rect_scale = Vector2( 0.5, 0.5 )
+rect_pivot_offset = Vector2( 309, 100 )
+custom_constants/separation = 9
+
+[node name="e" type="TextureRect" parent="Main/Medals"]
+visible = false
+margin_right = 200.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 200, 200 )
+texture = ExtResource( 4 )
+expand = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="m" type="TextureRect" parent="Main/Medals"]
+visible = false
+margin_right = 200.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 200, 200 )
+texture = ExtResource( 5 )
+expand = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="h" type="TextureRect" parent="Main/Medals"]
+visible = false
+margin_right = 200.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 200, 200 )
+texture = ExtResource( 6 )
+expand = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="preview" type="AudioStreamPlayer" parent="Main"]
+
+[node name="PreviewTime" type="Timer" parent="Main"]
+wait_time = 30.0
+one_shot = true
+
+[node name="Songlist" type="Button" parent="Main"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -540.0
+margin_top = -452.0
+margin_right = 540.0
+margin_bottom = -252.0
+rect_min_size = Vector2( 200, 200 )
+custom_fonts/font = SubResource( 26 )
+text = "lista de músicas"
+
+[node name="Store" parent="." instance=ExtResource( 9 )]
+visible = false
+__meta__ = {
+"_edit_horizontal_guides_": [ 54.0, 165.0 ]
+}
+
+[node name="congrats" parent="Store/RandomMusic" index="4"]
+text = "parabéns, diva! você comprou todas as músicas do jogo!!
+amo que amo."
+
+[node name="VersusMode" parent="Store" index="1"]
+visible = false
+
+[node name="CoverClip" parent="Store/VersusMode" index="4"]
+margin_top = -0.0680084
+margin_bottom = -0.0680084
+
+[node name="AnimationPlayer" parent="Store/UpgradesBG" index="1"]
+anims/RESET = SubResource( 30 )
+anims/enoughCupom = SubResource( 42 )
+
+[node name="Tasks" parent="." instance=ExtResource( 11 )]
+visible = false
+
+[node name="Settings" type="TextureButton" parent="."]
+margin_left = 34.0
+margin_top = 33.0
+margin_right = 194.0
+margin_bottom = 193.0
+texture_normal = ExtResource( 12 )
+
+[node name="CupomMusicaHolder" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = 303.0
+margin_top = 16.0
+margin_right = 490.0
+margin_bottom = 203.0
+rect_pivot_offset = Vector2( 93.5, 93.5 )
+texture = ExtResource( 7 )
+expand = true
+
+[node name="Amount" type="Label" parent="CupomMusicaHolder"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -190.0
+margin_top = -59.0
+rect_pivot_offset = Vector2( 190, 59 )
+custom_fonts/font = SubResource( 9 )
+text = "0"
+align = 2
+
+[node name="CupomListaHolder" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = 67.0
+margin_top = 16.0
+margin_right = 254.0
+margin_bottom = 203.0
+rect_pivot_offset = Vector2( 93, 93 )
+texture = ExtResource( 8 )
+expand = true
+
+[node name="Amount" type="Label" parent="CupomListaHolder"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -190.0
+margin_top = -59.0
+custom_fonts/font = SubResource( 9 )
+text = "0"
+align = 2
+
+[node name="Mariedas" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -157.0
+margin_top = 28.0
+margin_right = 6.0
+margin_bottom = 191.0
+rect_pivot_offset = Vector2( 81.5, 81.5 )
+texture = ExtResource( 3 )
+expand = true
+
+[node name="Amount" type="Label" parent="Mariedas"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -231.0
+margin_top = -47.0
+margin_right = 12.0
+margin_bottom = 12.0
+rect_pivot_offset = Vector2( 243, 59 )
+custom_fonts/font = SubResource( 29 )
+text = "0"
+align = 2
+valign = 2
+
+[node name="Buttons" type="HBoxContainer" parent="."]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -198.0
+margin_bottom = 2.0
+custom_constants/separation = 6
+alignment = 1
+
+[node name="Store" type="Button" parent="Buttons"]
+margin_left = 216.0
+margin_right = 416.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 200, 200 )
+custom_fonts/font = SubResource( 26 )
+text = "loja"
+
+[node name="Home" type="Button" parent="Buttons"]
+margin_left = 422.0
+margin_right = 622.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 200, 200 )
+custom_fonts/font = SubResource( 26 )
+text = "início"
+
+[node name="Chests" type="Button" parent="Buttons"]
+margin_left = 628.0
+margin_right = 864.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 200, 200 )
+custom_fonts/font = SubResource( 35 )
+text = "tarefas"
+
+[node name="SonglistBG" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.760784 )
+
+[node name="ScrollContainer" type="ScrollContainer" parent="SonglistBG"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 64.0
+margin_top = 284.0
+margin_right = -64.0
+margin_bottom = -64.0
+theme = SubResource( 31 )
+scroll_horizontal_enabled = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SonglistBG/ScrollContainer"]
+custom_constants/separation = 24
+
+[node name="Back" type="Button" parent="SonglistBG"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -446.0
+margin_top = 64.0
+margin_right = 446.0
+margin_bottom = 214.0
+custom_fonts/font = SubResource( 1 )
+text = "voltar"
+
+[node name="anim" type="AnimationPlayer" parent="."]
+autoplay = "RESET"
+anims/RESET = SubResource( 4 )
+anims/cupom_musicaglow = SubResource( 40 )
+anims/enter = SubResource( 5 )
+anims/mariedasglow = SubResource( 41 )
+
+[node name="Intro" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Logo" type="TextureRect" parent="Intro"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -400.0
+margin_top = 960.0
+margin_right = 400.0
+margin_bottom = 1760.0
+rect_rotation = 360.0
+rect_scale = Vector2( 0.5, 0.5 )
+rect_pivot_offset = Vector2( 400, 400 )
+texture = ExtResource( 13 )
+expand = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Intro"]
+stream = ExtResource( 10 )
+volume_db = 9.579
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Intro"]
+autoplay = "main"
+anims/RESET = SubResource( 36 )
+anims/main = SubResource( 37 )
+anims/transition-in = SubResource( 38 )
+anims/transition-off = SubResource( 39 )
+
+[node name="Tween" type="Tween" parent="Intro"]
+
+[node name="click" type="AudioStreamPlayer" parent="."]
+volume_db = -80.0
+
+[node name="Config" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.854902 )
+
+[node name="Back" type="Button" parent="Config"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -446.0
+margin_top = -375.0
+margin_right = 446.0
+margin_bottom = -225.0
+custom_fonts/font = SubResource( 1 )
+text = "voltar"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Config"]
+margin_left = 94.0
+margin_top = 224.0
+margin_right = 986.0
+margin_bottom = 1480.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Config/ScrollContainer"]
+margin_right = 892.0
+margin_bottom = 316.0
+custom_constants/separation = 16
+alignment = 1
+
+[node name="Sync" type="Button" parent="Config/ScrollContainer/VBoxContainer"]
+margin_right = 892.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 892, 150 )
+mouse_filter = 1
+custom_fonts/font = SubResource( 34 )
+text = "sincronização (bluetooth)"
+
+[node name="Tutorial" type="Button" parent="Config/ScrollContainer/VBoxContainer"]
+margin_top = 166.0
+margin_right = 892.0
+margin_bottom = 316.0
+rect_min_size = Vector2( 892, 150 )
+mouse_filter = 1
+custom_fonts/font = SubResource( 34 )
+text = "tutorial"
+
+[connection signal="pressed" from="Main/Play" to="." method="_on_Button_pressed"]
+[connection signal="finished" from="Main/preview" to="." method="_on_PreviewTime_timeout"]
+[connection signal="timeout" from="Main/PreviewTime" to="." method="_on_PreviewTime_timeout"]
+[connection signal="pressed" from="Main/Songlist" to="." method="_on_Songlist_pressed"]
+[connection signal="pressed" from="Settings" to="." method="_on_Settings_pressed"]
+[connection signal="pressed" from="Buttons/Store" to="." method="_on_Store_pressed"]
+[connection signal="pressed" from="Buttons/Home" to="." method="_on_Home_pressed"]
+[connection signal="pressed" from="Buttons/Chests" to="." method="_on_Chests_pressed"]
+[connection signal="pressed" from="SonglistBG/Back" to="." method="_on_Back_pressed"]
+[connection signal="animation_finished" from="Intro/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="pressed" from="Config/Back" to="." method="_on_BackConfig_pressed"]
+[connection signal="pressed" from="Config/ScrollContainer/VBoxContainer/Sync" to="." method="_on_Sync_pressed"]
+
+[editable path="Store"]
+[editable path="Tasks"]
+[editable path="Tasks/ScrollContainer/VBoxContainer/Task0"]
+[editable path="Tasks/ScrollContainer/VBoxContainer/Task1"]
+[editable path="Tasks/ScrollContainer/VBoxContainer/Task2"]

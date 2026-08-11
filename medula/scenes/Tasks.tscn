@@ -1,0 +1,88 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://medula/scenes/Tasks.gd" type="Script" id=1]
+[ext_resource path="res://GothamMedium.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://medula/sfx/firework_achieve.mp3" type="AudioStream" id=4]
+[ext_resource path="res://medula/scenes/Task_inList.tscn" type="PackedScene" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 100
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 35
+font_data = ExtResource( 2 )
+
+[node name="Tasks" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 961.0 ]
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 38.0
+margin_top = 228.0
+margin_right = -38.0
+margin_bottom = -219.0
+rect_clip_content = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+margin_right = 1004.0
+margin_bottom = 907.0
+rect_min_size = Vector2( 1004, 0 )
+custom_constants/separation = 32
+
+[node name="ScoreLabel" type="Label" parent="ScrollContainer/VBoxContainer"]
+margin_right = 1004.0
+margin_bottom = 89.0
+rect_pivot_offset = Vector2( 540, 65 )
+custom_fonts/font = SubResource( 1 )
+text = "Tarefas"
+align = 1
+valign = 2
+
+[node name="Info" type="Label" parent="ScrollContainer/VBoxContainer"]
+margin_top = 121.0
+margin_right = 1004.0
+margin_bottom = 223.0
+rect_min_size = Vector2( 0, 100 )
+custom_colors/font_color = Color( 0.72549, 0.72549, 0.72549, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "As tarefas recarregam toda vez que você entra no jogo, tente fazê-las (sem sair do jogo) para ganhar os prêmios."
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Task0" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 6 )]
+margin_left = 0.0
+margin_top = 255.0
+margin_right = 1004.0
+margin_bottom = 451.0
+
+[node name="Task1" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 6 )]
+margin_left = 0.0
+margin_top = 483.0
+margin_right = 1004.0
+margin_bottom = 679.0
+
+[node name="Task2" parent="ScrollContainer/VBoxContainer" instance=ExtResource( 6 )]
+margin_left = 0.0
+margin_top = 711.0
+margin_right = 1004.0
+margin_bottom = 907.0
+
+[node name="Cooldown" type="Timer" parent="."]
+wait_time = 6.0
+one_shot = true
+
+[node name="achieve" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+
+[editable path="ScrollContainer/VBoxContainer/Task0"]
+[editable path="ScrollContainer/VBoxContainer/Task1"]
+[editable path="ScrollContainer/VBoxContainer/Task2"]

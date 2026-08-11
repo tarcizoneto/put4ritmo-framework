@@ -1,0 +1,278 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://GothamMedium.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://medula/tex/unlock_part.png" type="Texture" id=2]
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0.447059, 0.447059, 0.447059, 1 )
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color( 1, 1, 1, 0 )
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 0.0862745, 0.0862745, 0.0862745, 1 )
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="DynamicFont" id=4]
+size = 32
+font_data = ExtResource( 1 )
+
+[sub_resource type="StreamTexture" id=39]
+flags = 4
+load_path = "res://.import/mariedas.png-fa371311bb61095c3bb82394cec935db.stex"
+
+[sub_resource type="DynamicFont" id=5]
+size = 54
+outline_size = 6
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 45
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=11]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Reward:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Reward/Amount:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "unlock0"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 0.120742, 1 ),
+"update": 0,
+"values": [ Vector2( 1.1, 1.5 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../../../achieve:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("UnlockParticlesLeft:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("UnlockParticlesRight:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.01, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath(".:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 2.88807, 3.2, 3.5, 3.8 ),
+"transitions": PoolRealArray( 1, 1, 262144, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/5/type = "method"
+tracks/5/path = NodePath("../../..")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0.3, 3.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "makeRewardParentGlow"
+}, {
+"args": [ 999 ],
+"method": "refreshTask"
+} ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Reward:rect_scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.3, 1.4 ),
+"transitions": PoolRealArray( 4.59479, 0.615573, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 3, 3 ), Vector2( 1, 1 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Reward/Amount:rect_scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6, 1.5 ),
+"transitions": PoolRealArray( 1, 4, 0.574349, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 2, 2 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Gradient" id=10]
+offsets = PoolRealArray( 0.804469, 0.865922, 1 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0.893855, 1, 1, 1, 0 )
+
+[node name="Task0" type="ColorRect"]
+margin_left = 30.0
+margin_top = 188.0
+margin_right = 1050.0
+margin_bottom = 384.0
+rect_min_size = Vector2( 0, 196 )
+rect_pivot_offset = Vector2( 540, 98 )
+color = Color( 0, 0, 0, 0.427451 )
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 27.0
+margin_top = -89.0
+margin_right = 809.0
+margin_bottom = -25.0
+custom_styles/fg = SubResource( 6 )
+custom_styles/bg = SubResource( 7 )
+max_value = 15000.0
+step = 1.0
+percent_visible = false
+
+[node name="ProgressPercent" type="Label" parent="ProgressBar"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 4 )
+text = "0 / 0"
+align = 1
+valign = 1
+
+[node name="Reward" type="TextureRect" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -196.0
+margin_top = 16.0
+margin_right = -32.0
+margin_bottom = 180.0
+rect_pivot_offset = Vector2( 164, 82 )
+texture = SubResource( 39 )
+expand = true
+
+[node name="Amount" type="Label" parent="Reward"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -293.0
+margin_top = -95.0
+margin_right = -16.0
+margin_bottom = 11.0
+rect_pivot_offset = Vector2( 277, 106 )
+custom_fonts/font = SubResource( 5 )
+text = "0"
+align = 2
+valign = 2
+
+[node name="Info" type="Label" parent="."]
+margin_left = 28.0
+margin_top = 27.0
+margin_right = 812.0
+margin_bottom = 104.0
+custom_fonts/font = SubResource( 8 )
+text = "Task"
+autowrap = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 11 )
+anims/unlock = SubResource( 9 )
+
+[node name="UnlockParticlesLeft" type="CPUParticles2D" parent="."]
+show_behind_parent = true
+position = Vector2( 540, 98 )
+emitting = false
+amount = 16
+lifetime = 1.5
+one_shot = true
+explosiveness = 0.85
+texture = ExtResource( 2 )
+direction = Vector2( -1, 0 )
+gravity = Vector2( 1, 0 )
+initial_velocity = 1000.0
+initial_velocity_random = 1.0
+angular_velocity = 369.9
+color_ramp = SubResource( 10 )
+
+[node name="UnlockParticlesRight" type="CPUParticles2D" parent="."]
+show_behind_parent = true
+position = Vector2( 540, 98 )
+emitting = false
+amount = 16
+lifetime = 1.5
+one_shot = true
+explosiveness = 0.85
+texture = ExtResource( 2 )
+gravity = Vector2( -1, 0 )
+initial_velocity = 1000.0
+initial_velocity_random = 1.0
+angular_velocity = 369.9
+color_ramp = SubResource( 10 )

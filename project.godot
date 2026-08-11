@@ -1,0 +1,65 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+[application]
+
+config/name="Put4Ritmo: AlbumName"
+run/main_scene="res://medula/scenes/Menu.tscn"
+boot_splash/image="res://medula/tex/p4s_white.png"
+boot_splash/bg_color=Color( 0, 0, 0, 1 )
+config/icon="res://icon.png"
+
+[autoload]
+
+global="*res://medula/sku/global.gd"
+ch2json="*res://medula/sku/SCRIPTch2json.gd"
+
+[display]
+
+window/size/width=1080
+window/size/height=1920
+window/handheld/orientation="portrait"
+window/stretch/mode="2d"
+window/stretch/aspect="keep"
+
+[global]
+
+scene=false
+touch=false
+icon=false
+
+[importer_defaults]
+
+ogg_vorbis={
+"loop": false,
+"loop_offset": 0
+}
+mp3={
+"loop": false,
+"loop_offset": 0
+}
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+
+[mono]
+
+project/assembly_name="BraRitmo"
+
+[physics]
+
+common/enable_pause_aware_picking=true
+
+[rendering]
+
+quality/driver/driver_name="GLES2"
+vram_compression/import_etc=true
+vram_compression/import_etc2=false

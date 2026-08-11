@@ -1,0 +1,2256 @@
+[gd_scene load_steps=58 format=2]
+
+[ext_resource path="res://GothamMedium.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://medula/tex/cupom_musica.png" type="Texture" id=2]
+[ext_resource path="res://medula/tex/cupom_lista.png" type="Texture" id=3]
+[ext_resource path="res://medula/scenes/Store.gd" type="Script" id=4]
+[ext_resource path="res://medula/tex/song.png" type="Texture" id=5]
+[ext_resource path="res://medula/tex/lock.png" type="Texture" id=6]
+[ext_resource path="res://songs/nonecover.png" type="Texture" id=7]
+[ext_resource path="res://medula/tex/upgrade_shop.png" type="Texture" id=8]
+[ext_resource path="res://medula/tex/customize.png" type="Texture" id=9]
+[ext_resource path="res://medula/tex/totem_ygona.png" type="Texture" id=10]
+[ext_resource path="res://medula/tex/mariedas.png" type="Texture" id=11]
+[ext_resource path="res://medula/scenes/ShopNote.tscn" type="PackedScene" id=12]
+[ext_resource path="res://medula/sfx/cashier.mp3" type="AudioStream" id=13]
+[ext_resource path="res://medula/tex/tulla_rica.png" type="Texture" id=14]
+[ext_resource path="res://medula/sfx/tulla_to-rica.mp3" type="AudioStream" id=15]
+[ext_resource path="res://medula/sfx/frases-desapontado/tulla-passam_no_enem.mp3" type="AudioStream" id=16]
+
+[sub_resource type="DynamicFont" id=7]
+size = 45
+outline_size = 7
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=19]
+bg_color = Color( 0.309804, 0.0196078, 0.415686, 1 )
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+
+[sub_resource type="DynamicFont" id=8]
+size = 50
+outline_size = 7
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="Curve" id=14]
+min_value = -360.0
+max_value = 360.0
+_data = [ Vector2( 0, 7.90897 ), 0.0, 0.0, 0, 0, Vector2( 0.881188, 184.636 ), 158.662, 0.0, 0, 0 ]
+
+[sub_resource type="Animation" id=15]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Cover:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Cover:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=16]
+resource_name = "cover_show"
+length = 9.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Cover:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 8.5, 8.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Cover:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3, 4.5, 8.5, 9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 0, -589 ), Vector2( 0, 0 ), Vector2( 0, 0 ) ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("../..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "sortcovers"
+} ]
+}
+
+[sub_resource type="Animation" id=20]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:custom_styles/disabled:bg_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.309804, 0.0196078, 0.415686, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("congrats:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Label:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Price:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Icon:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath(".:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Container:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Price:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Price:rect_scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Icon:rect_scale")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Icon:modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("../../CupomMusicaHolder:modulate")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("../../CupomMusicaHolder:rect_scale")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=21]
+resource_name = "disabled"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:custom_styles/disabled:bg_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.0666667, 0.0901961, 0.443137, 1 ), Color( 0.309804, 0.0196078, 0.415686, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("congrats:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Label:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Price:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Icon:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Container:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=36]
+resource_name = "enoughCoins"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Price:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.225313, 1 ),
+"update": 0,
+"values": [ Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Price:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.287175, 1 ),
+"update": 0,
+"values": [ Vector2( 1.5, 1.2 ), Vector2( 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Icon:rect_scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.258816, 1 ),
+"update": 0,
+"values": [ Vector2( 1.2, 1.2 ), Vector2( 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Icon:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.25, 1 ),
+"update": 0,
+"values": [ Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("../../CupomMusicaHolder:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.329877, 1 ),
+"update": 0,
+"values": [ Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("../../CupomMusicaHolder:rect_scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.450625, 1 ),
+"update": 0,
+"values": [ Vector2( 1.25, 1 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="StyleBoxFlat" id=33]
+bg_color = Color( 0.0705882, 0.0705882, 0.0705882, 1 )
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+
+[sub_resource type="Animation" id=34]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:icon")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ ExtResource( 6 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CoverClip/Cover:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CoverClip/Cover:rect_position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 102.5, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath(".:rect_position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 131.5, 846 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("CoverClip:rect_size")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 817, 0 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("CoverClip:rect_position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 178 ) ]
+}
+
+[sub_resource type="Animation" id=35]
+resource_name = "show"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:icon")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ null ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CoverClip/Cover:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5, 1.8 ),
+"transitions": PoolRealArray( 1, 0.517632, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CoverClip/Cover:rect_position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.5, 3 ),
+"transitions": PoolRealArray( 1, 0.353553, 1 ),
+"update": 0,
+"values": [ Vector2( 102.5, 612 ), Vector2( 102.5, 612 ), Vector2( 102.5, 43.9999 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath(".:rect_position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.5, 3 ),
+"transitions": PoolRealArray( 1, 0.353, 1 ),
+"update": 0,
+"values": [ Vector2( 131.5, 846 ), Vector2( 131.5, 846 ), Vector2( 131.5, 1208 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("CoverClip:rect_size")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 817, 656 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("CoverClip:rect_position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -478 ) ]
+}
+
+[sub_resource type="DynamicFont" id=6]
+size = 90
+outline_size = 7
+outline_color = Color( 0.247059, 0.207843, 0.235294, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 60
+outline_size = 6
+outline_color = Color( 0.756863, 0.701961, 0.701961, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=17]
+size = 39
+outline_size = 2
+outline_color = Color( 0.247059, 0.207843, 0.235294, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=10]
+size = 80
+outline_size = 7
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=11]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AlbumBG:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("AlbumBG/Info:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("AlbumBG/Attention:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("AlbumBG/Exit:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath(".:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("AlbumBG/ColorRect:rect_rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("AlbumBG/ColorRect:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("AlbumBG/Artist:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=18]
+resource_name = "exit"
+length = 2.0
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AlbumBG:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.55, 0.7 ),
+"transitions": PoolRealArray( 0.217638, 0.120742, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 1e-05, 1e-05 ), Vector2( 1.5, 1.5 ), Vector2( 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("AlbumBG/Info:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1.3, 1.75 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("AlbumBG/Attention:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.7, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("AlbumBG/Exit:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath(".:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("AlbumBG/ColorRect:rect_rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 1.45, 1.6, 1.75, 1.85 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, -7.7, 7.7, 0.0 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("AlbumBG/ColorRect:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 1.1, 1.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("AlbumBG/Artist:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 1.65, 1.9 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=13]
+resource_name = "main"
+length = 3.0
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AlbumBG:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.55, 0.7 ),
+"transitions": PoolRealArray( 0.217638, 0.120742, 1.10957, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 1e-05, 1e-05 ), Vector2( 1.5, 1.5 ), Vector2( 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("AlbumBG/Info:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1.3, 1.75 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("AlbumBG/Attention:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.7, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("AlbumBG/Exit:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath(".:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("AlbumBG/ColorRect:rect_rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 1.45, 1.6, 1.75, 1.85 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, -7.7, 7.7, 0.0 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("AlbumBG/ColorRect:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 1.1, 1.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("AlbumBG/Artist:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 1.65, 1.9 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="StyleBoxFlat" id=37]
+bg_color = Color( 0.133333, 0.133333, 0.133333, 1 )
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+
+[sub_resource type="StyleBoxFlat" id=38]
+bg_color = Color( 0.176471, 0.176471, 0.176471, 1 )
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+
+[sub_resource type="Animation" id=39]
+resource_name = "toUpgrade"
+
+[sub_resource type="Animation" id=43]
+resource_name = "toUpgrade"
+
+[sub_resource type="DynamicFont" id=1]
+size = 55
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=40]
+size = 35
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=42]
+resource_name = "enoughCoins"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("../../Mariedas:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.164938, 1 ),
+"update": 0,
+"values": [ Vector2( 1.5, 1 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../../Mariedas:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.307786, 1 ),
+"update": 0,
+"values": [ Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=47]
+resource_name = "enoughCupom"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("../../CupomListaHolder:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.164938, 1 ),
+"update": 0,
+"values": [ Vector2( 1.5, 1 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../../CupomListaHolder:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.307786, 1 ),
+"update": 0,
+"values": [ Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=46]
+resource_name = "enoughCupomLista"
+
+[sub_resource type="DynamicFont" id=41]
+size = 89
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=44]
+resource_name = "enoughCoins"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("../../Mariedas:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.164938, 1 ),
+"update": 0,
+"values": [ Vector2( 1.5, 1 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../../Mariedas:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.307786, 1 ),
+"update": 0,
+"values": [ Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="DynamicFont" id=45]
+size = 89
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=58]
+size = 48
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=49]
+size = 60
+outline_size = 7
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=50]
+size = 48
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=51]
+bg_color = Color( 0.133333, 0.133333, 0.133333, 1 )
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+
+[sub_resource type="StyleBoxFlat" id=52]
+bg_color = Color( 0.176471, 0.176471, 0.176471, 1 )
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+
+[sub_resource type="StyleBoxFlat" id=53]
+bg_color = Color( 0.133333, 0.133333, 0.133333, 1 )
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+
+[sub_resource type="Animation" id=54]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BG:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("BG/Because:percent_visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("BG/TotemYgona:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath(".:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("BG/No:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("BG/Yes:disabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=55]
+resource_name = "enter"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("BG:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("BG/TotemYgona:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1.6, 2.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath(".:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("BG/No:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("BG/Yes:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=56]
+resource_name = "exit"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.2, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("AudioStreamPlayer:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("BG/TotemYgona:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("BG:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=57]
+resource_name = "longExit"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 3, 6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "moveOn"
+}, {
+"args": [  ],
+"method": "moveOnResettingTotem"
+} ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("../song:volume_db")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 3, 4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -80.0, 0.0 ]
+}
+
+[node name="Store" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( -1577, -183 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 54.0, 165.0 ],
+"_edit_vertical_guides_": [ 520.0 ]
+}
+
+[node name="RandomMusic" type="Button" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -408.5
+margin_top = 429.0
+margin_right = 408.5
+margin_bottom = 657.0
+custom_fonts/font = SubResource( 7 )
+custom_styles/disabled = SubResource( 19 )
+clip_text = true
+
+[node name="Label" type="Label" parent="RandomMusic"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -409.5
+margin_top = 8.0
+margin_right = 393.5
+margin_bottom = 85.0
+custom_fonts/font = SubResource( 7 )
+text = "música aleatória"
+valign = 1
+autowrap = true
+
+[node name="Price" type="Label" parent="RandomMusic"]
+anchor_left = 1.002
+anchor_top = 0.028
+anchor_right = 1.002
+anchor_bottom = 0.028
+margin_left = -256.634
+margin_top = 228.616
+margin_right = -121.634
+margin_bottom = 303.616
+rect_pivot_offset = Vector2( 135, 37 )
+custom_fonts/font = SubResource( 8 )
+text = "5"
+align = 2
+valign = 1
+
+[node name="Icon" type="TextureRect" parent="RandomMusic"]
+anchor_left = 0.996
+anchor_top = 0.004
+anchor_right = 0.996
+anchor_bottom = 0.004
+margin_left = -112.232
+margin_top = 211.088
+margin_right = -0.232056
+margin_bottom = 323.088
+rect_pivot_offset = Vector2( 56, 56 )
+texture = ExtResource( 2 )
+expand = true
+
+[node name="Container" type="Container" parent="RandomMusic"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_clip_content = true
+mouse_filter = 2
+
+[node name="Cover" type="TextureRect" parent="RandomMusic/Container"]
+modulate = Color( 1, 1, 1, 0 )
+margin_right = 817.0
+margin_bottom = 817.0
+expand = true
+
+[node name="ColorRect" type="ColorRect" parent="RandomMusic/Container"]
+modulate = Color( 1, 1, 1, 0.803922 )
+margin_right = 817.0
+margin_bottom = 228.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 1 )
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="RandomMusic/Container"]
+position = Vector2( -33, 114 )
+emitting = false
+amount = 24
+lifetime = 3.0
+texture = ExtResource( 5 )
+emission_shape = 2
+emission_rect_extents = Vector2( 0, 114 )
+gravity = Vector2( 97, 0 )
+initial_velocity = 16.0
+angular_velocity = 105.7
+angular_velocity_random = 1.0
+angular_velocity_curve = SubResource( 14 )
+linear_accel = 97.25
+radial_accel = 3.67
+scale_amount = 0.1
+scale_amount_random = 0.5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="RandomMusic/Container"]
+anims/RESET = SubResource( 15 )
+anims/cover_show = SubResource( 16 )
+
+[node name="congrats" type="Label" parent="RandomMusic"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 7 )
+text = "parabéns, diva! você comprou todas as músicas do jogo
+que tal testar o modo babadeiro ai embaixo?"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="RandomMusic"]
+autoplay = "RESET"
+method_call_mode = 1
+anims/RESET = SubResource( 20 )
+anims/disabled = SubResource( 21 )
+anims/enoughCoins = SubResource( 36 )
+
+[node name="VersusMode" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -408.5
+margin_top = -1074.0
+margin_right = 408.5
+margin_bottom = -846.001
+custom_fonts/font = SubResource( 7 )
+custom_styles/disabled = SubResource( 33 )
+custom_styles/normal = SubResource( 33 )
+disabled = true
+icon = ExtResource( 6 )
+clip_text = true
+icon_align = 1
+expand_icon = true
+
+[node name="Label" type="Label" parent="VersusMode"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -409.5
+margin_top = 8.0
+margin_right = 393.5
+margin_bottom = 85.0
+custom_fonts/font = SubResource( 7 )
+text = "modo The Cururu"
+valign = 1
+autowrap = true
+
+[node name="Price" type="Label" parent="VersusMode"]
+anchor_left = 1.002
+anchor_top = 0.028
+anchor_right = 1.002
+anchor_bottom = 0.028
+margin_left = -256.634
+margin_top = 228.616
+margin_right = -121.634
+margin_bottom = 303.616
+custom_fonts/font = SubResource( 8 )
+text = "10"
+align = 2
+valign = 1
+
+[node name="Icon" type="TextureRect" parent="VersusMode"]
+anchor_left = 0.996
+anchor_top = 0.004
+anchor_right = 0.996
+anchor_bottom = 0.004
+margin_left = -112.232
+margin_top = 211.088
+margin_right = -0.232056
+margin_bottom = 323.088
+texture = ExtResource( 3 )
+expand = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="VersusMode"]
+autoplay = "RESET"
+anims/RESET = SubResource( 34 )
+anims/show = SubResource( 35 )
+
+[node name="CoverClip" type="ColorRect" parent="VersusMode"]
+anchor_left = 0.5
+anchor_top = 0.781
+anchor_right = 0.5
+anchor_bottom = 0.781
+margin_left = -408.5
+margin_top = -0.0672455
+margin_right = 408.5
+margin_bottom = -0.0672455
+rect_clip_content = true
+mouse_filter = 2
+color = Color( 1, 1, 1, 0 )
+
+[node name="Cover" type="TextureButton" parent="VersusMode/CoverClip"]
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -306.0
+margin_right = 306.0
+margin_bottom = 611.999
+texture_normal = ExtResource( 7 )
+expand = true
+
+[node name="NewMusicBG" type="ColorRect" parent="."]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.713726 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="AlbumBG" type="ColorRect" parent="NewMusicBG"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -452.0
+margin_top = -452.0
+margin_right = 452.0
+margin_bottom = 452.0
+rect_scale = Vector2( 1e-05, 1e-05 )
+rect_pivot_offset = Vector2( 452, 452 )
+rect_clip_content = true
+color = Color( 0, 0, 0, 1 )
+
+[node name="Cover" type="TextureRect" parent="NewMusicBG/AlbumBG"]
+modulate = Color( 1, 1, 1, 0.537255 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+expand = true
+stretch_mode = 1
+
+[node name="Attention" type="Label" parent="NewMusicBG/AlbumBG"]
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -452.0
+margin_right = 452.0
+margin_bottom = 122.0
+custom_fonts/font = SubResource( 6 )
+text = "nova música!"
+align = 1
+valign = 2
+uppercase = true
+
+[node name="Info" type="Label" parent="NewMusicBG/AlbumBG"]
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -452.0
+margin_top = 118.0
+margin_right = 452.0
+margin_bottom = 219.0
+rect_pivot_offset = Vector2( -481, 75 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 9 )
+text = "SongTitle"
+align = 1
+valign = 2
+
+[node name="ColorRect" type="ColorRect" parent="NewMusicBG/AlbumBG"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 205.0
+margin_top = 230.0
+margin_right = 699.0
+margin_bottom = 234.0
+rect_pivot_offset = Vector2( 247, 2 )
+
+[node name="Artist" type="Label" parent="NewMusicBG/AlbumBG"]
+modulate = Color( 1, 1, 1, 0 )
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_top = -212.0
+margin_bottom = -151.0
+custom_colors/font_color = Color( 0.976471, 0.976471, 0.976471, 1 )
+custom_fonts/font = SubResource( 17 )
+text = "SongArtist"
+align = 1
+
+[node name="Exit" type="Button" parent="NewMusicBG/AlbumBG"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -402.0
+margin_top = -165.0
+margin_right = 402.0
+margin_bottom = -43.0
+custom_fonts/font = SubResource( 10 )
+text = "arrasei"
+
+[node name="anim" type="AnimationPlayer" parent="NewMusicBG"]
+method_call_mode = 1
+anims/RESET = SubResource( 11 )
+anims/exit = SubResource( 18 )
+anims/main = SubResource( 13 )
+
+[node name="ChangeShop" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -401.0
+margin_top = -382.0
+margin_bottom = -250.0
+custom_fonts/font = SubResource( 8 )
+custom_styles/hover = SubResource( 37 )
+custom_styles/pressed = SubResource( 38 )
+custom_styles/normal = SubResource( 37 )
+text = " melhorias"
+icon = ExtResource( 8 )
+icon_align = 2
+expand_icon = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ChangeShop"]
+anims/toUpgrade = SubResource( 39 )
+
+[node name="ChangeShopCustom" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_top = -382.0
+margin_right = 401.0
+margin_bottom = -250.0
+custom_fonts/font = SubResource( 8 )
+custom_styles/hover = SubResource( 37 )
+custom_styles/pressed = SubResource( 38 )
+custom_styles/normal = SubResource( 37 )
+text = "teclas"
+icon = ExtResource( 9 )
+icon_align = 2
+expand_icon = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ChangeShopCustom"]
+anims/toUpgrade = SubResource( 43 )
+
+[node name="UpgradesBG" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.92549 )
+
+[node name="ScrollContainer" type="ScrollContainer" parent="UpgradesBG"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 64.0
+margin_top = 284.0
+margin_right = -64.0
+margin_bottom = -64.0
+scroll_horizontal_enabled = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UpgradesBG/ScrollContainer"]
+margin_right = 952.0
+margin_bottom = 376.0
+rect_pivot_offset = Vector2( -1616, 321 )
+custom_constants/separation = 24
+
+[node name="Totem" type="ColorRect" parent="UpgradesBG/ScrollContainer/VBoxContainer"]
+margin_right = 952.0
+margin_bottom = 176.0
+rect_min_size = Vector2( 952, 176 )
+color = Color( 0, 0, 0, 1 )
+
+[node name="Icon" type="TextureRect" parent="UpgradesBG/ScrollContainer/VBoxContainer/Totem"]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 157.0
+margin_bottom = 157.0
+texture = ExtResource( 10 )
+expand = true
+
+[node name="Name" type="Label" parent="UpgradesBG/ScrollContainer/VBoxContainer/Totem"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 170.0
+margin_top = -88.0
+margin_bottom = -7.0
+custom_fonts/font = SubResource( 1 )
+text = "Totem da Ygona"
+valign = 1
+
+[node name="Info" type="Label" parent="UpgradesBG/ScrollContainer/VBoxContainer/Totem"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 170.0
+margin_top = -22.0
+margin_right = -131.0
+margin_bottom = 51.0
+custom_colors/font_color = Color( 0.505882, 0.505882, 0.505882, 1 )
+custom_fonts/font = SubResource( 40 )
+text = "Consegue te renascer caso você perca o jogo (e as vezes garantir  uns pontos a mais)"
+autowrap = true
+
+[node name="IconPrice" type="TextureRect" parent="UpgradesBG/ScrollContainer/VBoxContainer/Totem"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -86.0
+margin_top = 87.0
+margin_right = -11.0
+margin_bottom = 162.0
+rect_pivot_offset = Vector2( 56, 56 )
+texture = ExtResource( 11 )
+expand = true
+
+[node name="Price" type="Label" parent="UpgradesBG/ScrollContainer/VBoxContainer/Totem"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -227.0
+margin_top = 87.0
+margin_right = -92.0
+margin_bottom = 162.0
+rect_pivot_offset = Vector2( 135, 37 )
+custom_fonts/font = SubResource( 8 )
+text = "50"
+align = 2
+valign = 1
+
+[node name="Button" type="Button" parent="UpgradesBG/ScrollContainer/VBoxContainer/Totem"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+flat = true
+
+[node name="MusicPrice" type="ColorRect" parent="UpgradesBG/ScrollContainer/VBoxContainer"]
+margin_top = 200.0
+margin_right = 952.0
+margin_bottom = 376.0
+rect_min_size = Vector2( 952, 176 )
+color = Color( 0, 0, 0, 1 )
+
+[node name="Icon" type="TextureRect" parent="UpgradesBG/ScrollContainer/VBoxContainer/MusicPrice"]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 157.0
+margin_bottom = 157.0
+texture = ExtResource( 14 )
+expand = true
+
+[node name="Name" type="Label" parent="UpgradesBG/ScrollContainer/VBoxContainer/MusicPrice"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 170.0
+margin_top = -88.0
+margin_bottom = -7.0
+custom_fonts/font = SubResource( 1 )
+text = "Mão de vaca"
+valign = 1
+
+[node name="Info" type="Label" parent="UpgradesBG/ScrollContainer/VBoxContainer/MusicPrice"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 170.0
+margin_top = -22.0
+margin_right = -131.0
+margin_bottom = 51.0
+custom_colors/font_color = Color( 0.505882, 0.505882, 0.505882, 1 )
+custom_fonts/font = SubResource( 40 )
+text = "Diminui em 5 fichas de música o preço da música aleatória usando 5 fichas de álbum (pra sempre!) "
+autowrap = true
+
+[node name="IconPrice" type="TextureRect" parent="UpgradesBG/ScrollContainer/VBoxContainer/MusicPrice"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -86.0
+margin_top = 87.0
+margin_right = -11.0
+margin_bottom = 162.0
+rect_pivot_offset = Vector2( 56, 56 )
+texture = ExtResource( 3 )
+expand = true
+
+[node name="Price" type="Label" parent="UpgradesBG/ScrollContainer/VBoxContainer/MusicPrice"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -227.0
+margin_top = 87.0
+margin_right = -92.0
+margin_bottom = 162.0
+rect_pivot_offset = Vector2( 135, 37 )
+custom_fonts/font = SubResource( 8 )
+text = "5"
+align = 2
+valign = 1
+
+[node name="Button" type="Button" parent="UpgradesBG/ScrollContainer/VBoxContainer/MusicPrice"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+flat = true
+
+[node name="BuySFX" type="AudioStreamPlayer" parent="UpgradesBG/ScrollContainer/VBoxContainer/MusicPrice"]
+stream = ExtResource( 15 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UpgradesBG"]
+method_call_mode = 1
+anims/enoughCoins = SubResource( 42 )
+anims/enoughCupom = SubResource( 47 )
+anims/enoughCupomLista = SubResource( 46 )
+
+[node name="Back" type="Button" parent="UpgradesBG"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -446.0
+margin_top = -379.0
+margin_right = 446.0
+margin_bottom = -253.0
+custom_fonts/font = SubResource( 41 )
+text = "voltar"
+
+[node name="Info" type="Label" parent="UpgradesBG"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -486.0
+margin_top = 214.0
+margin_right = 486.0
+margin_bottom = 283.0
+custom_colors/font_color = Color( 0.505882, 0.505882, 0.505882, 1 )
+custom_fonts/font = SubResource( 40 )
+text = "Toque no item para comprar!"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="CustomBG" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0.92549 )
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CustomBG"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 64.0
+margin_top = 300.0
+margin_right = -64.0
+margin_bottom = -410.0
+scroll_horizontal_enabled = false
+
+[node name="VBoxContainer" type="GridContainer" parent="CustomBG/ScrollContainer"]
+margin_right = 932.0
+margin_bottom = 7484.0
+rect_pivot_offset = Vector2( -1616, 321 )
+columns = 2
+
+[node name="Choice1" parent="CustomBG/ScrollContainer/VBoxContainer" instance=ExtResource( 12 )]
+price = 0
+
+[node name="Choice2" parent="CustomBG/ScrollContainer/VBoxContainer" instance=ExtResource( 12 )]
+noteName = "tulla5"
+price = 100
+
+[node name="Choice13" parent="CustomBG/ScrollContainer/VBoxContainer" instance=ExtResource( 12 )]
+noteName = "EASTERmaria2"
+price = 100
+
+[node name="Choice14" parent="CustomBG/ScrollContainer/VBoxContainer" instance=ExtResource( 12 )]
+noteName = "tulla4"
+price = 100
+
+[node name="Choice3" parent="CustomBG/ScrollContainer/VBoxContainer" instance=ExtResource( 12 )]
+noteName = "maria3"
+price = 125
+
+[node name="Choice4" parent="CustomBG/ScrollContainer/VBoxContainer" instance=ExtResource( 12 )]
+noteName = "tulla2"
+price = 125
+
+[node name="Choice5" parent="CustomBG/ScrollContainer/VBoxContainer" instance=ExtResource( 12 )]
+noteName = "maria2"
+price = 125
+
+[node name="Choice6" parent="CustomBG/ScrollContainer/VBoxContainer" instance=ExtResource( 12 )]
+noteName = "EASTERtulla3"
+price = 125
+
+[node name="Choice7" parent="CustomBG/ScrollContainer/VBoxContainer" instance=ExtResource( 12 )]
+noteName = "maria5"
+price = 150
+
+[node name="Choice9" parent="CustomBG/ScrollContainer/VBoxContainer" instance=ExtResource( 12 )]
+noteName = "tulla6"
+price = 150
+
+[node name="Choice8" parent="CustomBG/ScrollContainer/VBoxContainer" instance=ExtResource( 12 )]
+noteName = "maria6"
+price = 150
+
+[node name="Choice10" parent="CustomBG/ScrollContainer/VBoxContainer" instance=ExtResource( 12 )]
+noteName = "tulla10"
+price = 150
+
+[node name="Choice19" parent="CustomBG/ScrollContainer/VBoxContainer" instance=ExtResource( 12 )]
+noteName = "EASTERmaria1"
+price = 150
+
+[node name="Choice20" parent="CustomBG/ScrollContainer/VBoxContainer" instance=ExtResource( 12 )]
+noteName = "tulla9"
+price = 150
+
+[node name="Choice21" parent="CustomBG/ScrollContainer/VBoxContainer" instance=ExtResource( 12 )]
+noteName = "maria12"
+price = 150
+
+[node name="Choice22" parent="CustomBG/ScrollContainer/VBoxContainer" instance=ExtResource( 12 )]
+noteName = "tulla12"
+price = 150
+
+[node name="Choice15" parent="CustomBG/ScrollContainer/VBoxContainer" instance=ExtResource( 12 )]
+noteName = "maria9"
+price = 200
+
+[node name="Choice16" parent="CustomBG/ScrollContainer/VBoxContainer" instance=ExtResource( 12 )]
+noteName = "tulla14"
+price = 200
+
+[node name="Choice17" parent="CustomBG/ScrollContainer/VBoxContainer" instance=ExtResource( 12 )]
+noteName = "maria10"
+price = 200
+
+[node name="Choice18" parent="CustomBG/ScrollContainer/VBoxContainer" instance=ExtResource( 12 )]
+noteName = "tulla11"
+price = 200
+
+[node name="Choice11" parent="CustomBG/ScrollContainer/VBoxContainer" instance=ExtResource( 12 )]
+noteName = "maria4"
+price = 250
+
+[node name="Choice12" parent="CustomBG/ScrollContainer/VBoxContainer" instance=ExtResource( 12 )]
+noteName = "tulla3"
+price = 250
+
+[node name="Choice23" parent="CustomBG/ScrollContainer/VBoxContainer" instance=ExtResource( 12 )]
+noteName = "maria7"
+price = 300
+
+[node name="Choice24" parent="CustomBG/ScrollContainer/VBoxContainer" instance=ExtResource( 12 )]
+noteName = "tulla1"
+price = 300
+
+[node name="Choice25" parent="CustomBG/ScrollContainer/VBoxContainer" instance=ExtResource( 12 )]
+noteName = "maria11"
+price = 400
+
+[node name="Choice26" parent="CustomBG/ScrollContainer/VBoxContainer" instance=ExtResource( 12 )]
+noteName = "tulla13"
+price = 400
+
+[node name="Choice27" parent="CustomBG/ScrollContainer/VBoxContainer" instance=ExtResource( 12 )]
+noteName = "misc1"
+price = 500
+
+[node name="Choice28" parent="CustomBG/ScrollContainer/VBoxContainer" instance=ExtResource( 12 )]
+noteName = "misc2"
+price = 500
+
+[node name="Choice29" parent="CustomBG/ScrollContainer/VBoxContainer" instance=ExtResource( 12 )]
+noteName = "joseotavio"
+price = 666
+
+[node name="Choice30" parent="CustomBG/ScrollContainer/VBoxContainer" instance=ExtResource( 12 )]
+noteName = "joseotavio2"
+price = 666
+
+[node name="Choice31" parent="CustomBG/ScrollContainer/VBoxContainer" instance=ExtResource( 12 )]
+noteName = "EASTERtulla2"
+price = 1000
+
+[node name="Choice32" parent="CustomBG/ScrollContainer/VBoxContainer" instance=ExtResource( 12 )]
+noteName = "maria13"
+price = 1000
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CustomBG"]
+method_call_mode = 1
+anims/enoughCoins = SubResource( 44 )
+
+[node name="Back" type="Button" parent="CustomBG"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -446.0
+margin_top = -379.0
+margin_right = 446.0
+margin_bottom = -253.0
+custom_fonts/font = SubResource( 45 )
+text = "voltar"
+
+[node name="Info" type="Label" parent="CustomBG"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -486.0
+margin_top = 214.0
+margin_right = 486.0
+margin_bottom = 291.0
+custom_colors/font_color = Color( 0.505882, 0.505882, 0.505882, 1 )
+custom_fonts/font = SubResource( 40 )
+text = "Personalize o seu jogo! Escolha qual a arte das notas."
+align = 1
+valign = 1
+autowrap = true
+
+[node name="VersusModeHint" type="ColorRect" parent="."]
+visible = false
+modulate = Color( 1, 1, 1, 0 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 0.752941 )
+
+[node name="BG" type="ColorRect" parent="VersusModeHint"]
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -431.0
+margin_top = -612.0
+margin_right = 431.0
+margin_bottom = 612.0
+color = Color( 0.0862745, 0.0862745, 0.0862745, 1 )
+
+[node name="Because" type="Label" parent="VersusModeHint/BG"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -406.0
+margin_top = 52.0
+margin_right = 406.0
+margin_bottom = 420.0
+custom_fonts/font = SubResource( 58 )
+text = "Mas, mona... que coragem!
+
+Tem certeza que quer iniciar o modo {ALBUM}?
+Antes, seria bom ver quantos totens você tem, já que esse modo não tem pausa ou saída e toca o álbum inteiro de uma vez
+
+Ao jogar esse modo, você, finalmente, zera o jogo! 
+
+Lembra de escolher sua tecla favorita!"
+align = 1
+autowrap = true
+
+[node name="TotemYgona" type="TextureButton" parent="VersusModeHint/BG"]
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -97.0
+margin_top = 149.5
+margin_right = 97.0
+margin_bottom = 343.5
+texture_normal = ExtResource( 10 )
+texture_pressed = ExtResource( 10 )
+texture_hover = ExtResource( 10 )
+expand = true
+
+[node name="Amount" type="Label" parent="VersusModeHint/BG/TotemYgona"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -167.0
+margin_top = -59.0
+custom_fonts/font = SubResource( 49 )
+text = "0"
+align = 2
+valign = 2
+
+[node name="No" type="Button" parent="VersusModeHint/BG"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 46.0
+margin_top = -173.0
+margin_right = 411.0
+margin_bottom = -41.0
+custom_fonts/font = SubResource( 50 )
+custom_styles/hover = SubResource( 51 )
+custom_styles/pressed = SubResource( 52 )
+custom_styles/focus = SubResource( 51 )
+custom_styles/disabled = SubResource( 51 )
+custom_styles/normal = SubResource( 53 )
+disabled = true
+text = "Desisto!"
+icon_align = 1
+expand_icon = true
+
+[node name="Yes" type="Button" parent="VersusModeHint/BG"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -451.0
+margin_top = -173.0
+margin_right = -46.0
+margin_bottom = -41.0
+custom_fonts/font = SubResource( 50 )
+custom_styles/hover = SubResource( 51 )
+custom_styles/pressed = SubResource( 52 )
+custom_styles/disabled = SubResource( 51 )
+custom_styles/normal = SubResource( 53 )
+disabled = true
+text = "Certo, mo!"
+icon_align = 1
+expand_icon = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="VersusModeHint"]
+stream = ExtResource( 16 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="VersusModeHint"]
+autoplay = "RESET"
+anims/RESET = SubResource( 54 )
+anims/enter = SubResource( 55 )
+anims/exit = SubResource( 56 )
+anims/longExit = SubResource( 57 )
+
+[node name="Buy" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 13 )
+
+[connection signal="visibility_changed" from="." to="." method="_on_Store_visibility_changed"]
+[connection signal="pressed" from="RandomMusic" to="." method="_on_RandomMusic_pressed"]
+[connection signal="visibility_changed" from="RandomMusic" to="." method="_on_RandomMusic_visibility_changed"]
+[connection signal="pressed" from="VersusMode" to="." method="_on_VersusMode_pressed"]
+[connection signal="visibility_changed" from="VersusMode" to="." method="_on_RandomMusic_visibility_changed"]
+[connection signal="pressed" from="VersusMode/CoverClip/Cover" to="." method="_on_VersusMode_pressed"]
+[connection signal="pressed" from="NewMusicBG/AlbumBG/Exit" to="." method="_on_Exit_pressed"]
+[connection signal="pressed" from="ChangeShop" to="." method="_on_ChangeShop_pressed"]
+[connection signal="pressed" from="ChangeShopCustom" to="." method="_on_ChangeShopCustom_pressed"]
+[connection signal="pressed" from="UpgradesBG/ScrollContainer/VBoxContainer/Totem/Button" to="." method="_on_TotemYgona_pressed"]
+[connection signal="pressed" from="UpgradesBG/ScrollContainer/VBoxContainer/MusicPrice/Button" to="." method="_on_MusicPrice_pressed"]
+[connection signal="pressed" from="UpgradesBG/Back" to="." method="_on_BackUpgrade_pressed"]
+[connection signal="pressed" from="CustomBG/Back" to="." method="_on_BackCustom_pressed"]
+[connection signal="pressed" from="VersusModeHint/BG/No" to="." method="_on_No_pressed"]
+[connection signal="pressed" from="VersusModeHint/BG/Yes" to="." method="_on_Yes_pressed"]

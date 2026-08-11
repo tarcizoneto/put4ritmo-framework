@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://medula/scenes/CupomMusica.gd" type="Script" id=1]
+
+[sub_resource type="StreamTexture" id=38]
+flags = 4
+load_path = "res://.import/cupom_musica.png-2c7c603fac84634448396a4ebf74382d.stex"
+
+[node name="CupomMusica" type="TextureRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -813.0
+margin_top = -1047.0
+margin_right = -685.0
+margin_bottom = -919.0
+rect_pivot_offset = Vector2( 64, 64 )
+texture = SubResource( 38 )
+expand = true
+script = ExtResource( 1 )
+finalPOS = Vector2( 914, 18 )
+initialPOS = Vector2( 476, 896 )
+
+[node name="pos" type="Tween" parent="."]
+
+[node name="size" type="Tween" parent="."]
+
+[node name="modulate_a" type="Tween" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.321
+one_shot = true
+
+[connection signal="tween_all_completed" from="size" to="." method="_on_pos_tween_all_completed"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

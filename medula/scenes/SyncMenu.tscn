@@ -1,0 +1,117 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://GothamMedium.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://medula/scenes/SyncMenu.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 47
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 134
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 55
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.0941176, 0.0941176, 0.0941176, 1 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "tick"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.0915054, 1 ),
+"update": 0,
+"values": [ Color( 0.345098, 0.345098, 0.345098, 1 ), Color( 0.0941176, 0.0941176, 0.0941176, 1 ) ]
+}
+
+[node name="SyncMenu" type="ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 420.0
+margin_bottom = -420.0
+color = Color( 0.0941176, 0.0941176, 0.0941176, 1 )
+script = ExtResource( 2 )
+
+[node name="Info" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -486.0
+margin_top = 91.0
+margin_right = 486.0
+margin_bottom = 312.0
+custom_colors/font_color = Color( 0.505882, 0.505882, 0.505882, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Sincronize o tempo das teclas, clique em qualquer lugar deste quadrado quando escutar um som de um metrônomo, continue clicando até ficar estável."
+align = 1
+autowrap = true
+
+[node name="Delay" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -372.0
+margin_top = -208.0
+margin_right = 372.0
+margin_bottom = 222.0
+custom_fonts/font = SubResource( 2 )
+text = "-- ms"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="Button" type="Button" parent="."]
+physics_interpolation_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+flat = true
+
+[node name="Met" type="AudioStreamPlayer" parent="."]
+stream = null
+
+[node name="Timer" type="Timer" parent="."]
+process_mode = 0
+one_shot = true
+
+[node name="Back" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -157.0
+margin_top = -123.0
+margin_right = 157.0
+margin_bottom = -27.0
+custom_fonts/font = SubResource( 3 )
+text = "voltar"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+method_call_mode = 1
+anims/RESET = SubResource( 4 )
+anims/tick = SubResource( 5 )
+
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="pressed" from="Back" to="." method="_on_Back_pressed"]
