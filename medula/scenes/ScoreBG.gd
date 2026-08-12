@@ -18,8 +18,8 @@ func _ready():
 	$Cover.texture = load(global.returnpath('cover', global.codename))
 	$CoverDeco.texture = load(global.returnpath('cover', global.codename))
 	
-	var newStyleBoxPlayNormal = load('res://styles/ButtonStyleBox.tres')
-	var newStyleBoxPlayPressed = load('res://styles/ButtonStyleBoxP.tres')
+	var newStyleBoxPlayNormal = load('res://medula/styles/ButtonStyleBox.tres')
+	var newStyleBoxPlayPressed = load('res://medula/styles/ButtonStyleBoxP.tres')
 	
 	newStyleBoxPlayNormal.border_color = global.defaultColors[0]
 	newStyleBoxPlayPressed.border_color = global.defaultColors[1]

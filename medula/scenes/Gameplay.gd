@@ -24,7 +24,7 @@ var finished = false
 var continueEvent = []
 var continueScore = 0
 var pausedLostTime = 0
-onready var customNoteTEX = load('res://tex/custom/notes/'+global.customNote+'.png')
+onready var customNoteTEX = load('res://medula/tex/custom/notes/'+global.customNote+'.png')
 
 var ALBUMMODE = false
 var isParentofAlbumMode = false
