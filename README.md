@@ -26,7 +26,7 @@ Cada edição tem **todas as músicas de um álbum**, e para **zerar** o jogo, �
 * **Poderes!** No jogo, existem alguns poderes (e podem existir mais, mas não tive tantas ideias acerca), são eles:
 > - **Totem da Ygona** *(sim, um in memoriam da Ygona Moura)*: vale 50 mariedas e serve para **ressuscitar o jogador na sua jogatina**, quando ele não clicar em alguma tecla, gastando assim um totem a cada ressuscitada;
 > * **Mão de vaca:** vale 5 fichas de lista, é usado pra **diminuir o preço da compra de uma nova música em 5 fichas de música** e funciona melhor quando se tem muuuitas músicas em um jogo só.
-> * O jogo pode ser jogado com **Bluetooth**, existe uma tela nas configurações do jogo para determinar o atraso do Bluetooth.
+* O jogo pode ser jogado com **Bluetooth**, existe uma tela nas configurações do jogo para determinar o atraso do Bluetooth.
 * Devo ter esquecido alguns recursos, mas vale a pena, e recomendo também, olhar o código, a pasta com as texturas, os sons e testar o jogo em si!
 
 ## Notas!
