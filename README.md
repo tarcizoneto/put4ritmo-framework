@@ -1,5 +1,5 @@
 # Put4Ritmo-framework (**ARQUIVO**; Godot 3)
-Put4Ritmo é um jogo de ritmo mobile *feito em 2023~2024* inspirado no jogo Beatstar na Godot Engine, e teve sua base nas duas "artistas" e os álbuns da [put4 records](https://www.youtube.com/@put4records) (projeto de uma pseudogravadora criada no Youtube, que envolve as pessoas Maria José "Cururu" e a Tulla Luana.)
+Put4Ritmo é um jogo de ritmo mobile *feito em 2023~2024 e pelo pseudoestúdio "put4records"* inspirado no jogo Beatstar na Godot Engine, e teve sua base nas duas "artistas" e os álbuns da [put4 records](https://www.youtube.com/@put4records) (projeto de uma pseudogravadora criada no Youtube, que envolve as pessoas Maria José "Cururu" e a Tulla Luana),
 [Confira a gameplay](https://www.youtube.com/watch?v=OaPdtUqjD2g) da edição Put4Ritmo: Sucessos do BUVA, onde tento mostrar a maioria dos recursos do jogo!
 
 Put4Ritmo usa **charts de Clone Hero / Guitar Hero (.chart)** que são feitas usando só as **três primeiras teclas da guitarra**, mas, se a chart usar todas as 7 teclas, o script que converte o arquivo pra a linha do tempo utilizada no jogo consegue espelhar as 7 teclas em apenas 3. Escolhi esse sistema porque, inicialmente, eu usava vários mapas prontos do Clone Hero e queria tornar eles jogáveis.
@@ -12,6 +12,15 @@ Cada edição tem **todas as músicas de um álbum**, e para **zerar** o jogo, �
 > * **Fichas de lista**: ganha-se 1 a cada jogatina finalizada com a pontuação máxima e é usada para jogar o modo álbum;
 > * **Fichas de música**: ganha-se 1 a cada "estrela" (9000 pontos), mas sendo ela a própria estrela em si, e é usada pra comprar músicas;
 > * **Mariedas**: ganha-se 1 a cada 1000 pontos na jogatina, é a moeda de menor valor e é usada pra comprar notas customizadas.
+* **Tarefas!** No jogo, existem algumas tarefas para **ajudar e agilizar o progresso do jogador** e consistem em infinitas 3 tarefas aleatórias, que são **recarregadas** a cada abertura de jogo e sempre que alguma tarefa é realizada, existem 7 tipos a serem sorteados (e você vai ter que olhar as recompensas e o alcance de cada um no código), são eles:
+> * **Ganhar** certa quantidade de **pontos** *(de 100000 a 200000)*;
+> * **Jogar** certa **música** e alcançar mais de 3 estrelas *(música aleatória)*;
+> * **Gastar** certa quantidade de ***mariedas*** *(de 50 a 150)*;
+> * **Conseguir** certa quantidade de **estrelas** *(de 10 a 25)*;
+> * **Usar** certa quantidade de **totens de renascimento** *(de 2 a 6)*;
+> * **Ganhar** certa quantidade de **fichas de músicas** *(de 10 a 20)*;
+> * **Conseguir** certa quantidade de **fichas de músicas** *(de 10 a 20)*;
+> * **Conseguir** certa quantidade de **mariedas** *(de 100 a 200)*.
 * A **compra de músicas** consiste em apenas um botão na aba loja e custa inicialmente **5 fichas de música**, quando uma música é comprada, existe **50% de chance do preço aumentar em 5 fichas;**
 * A **pontuação máxima é 50000**, onde existem **5 estrelas**, que são as fichas de música;
 * **As notas da jogatina podem ser customizadas!** Existe uma parte da loja que vende apenas essas customizações, para editá-las, as notas já são instanciadas no editor, só o fundo da nota que é fixo (mas a textura deste pode ser mudada também);
@@ -21,13 +30,12 @@ Cada edição tem **todas as músicas de um álbum**, e para **zerar** o jogo, �
 * Devo ter esquecido alguns recursos, mas vale a pena, e recomendo também, olhar o código, a pasta com as texturas, os sons e testar o jogo em si!
 
 ## Notas!
-*  Esse jogo foi totalmente feito em, formalmente, "vibe coding" (informalmente: é todo troncho) mas eu só pensava em fazer um protótipo de algo divertido que eu pudesse jogar e colocar minhas charts, mas, se por algum acaso, esse jogo realmente virar uma release, eu assumo que em algumas partes, o código deveria ser mais é otimizado. p.s.: quebra um galho enorme e é todo funcional!!!
+*  Esse jogo foi totalmente feito em, formalmente, "vibe coding" (informalmente: é todo troncho) mas eu só pensava em fazer um protótipo imediato de algo divertido que eu pudesse jogar e colocar minhas charts, mas, se por algum acaso, esse jogo realmente virar uma release, eu assumo que em algumas partes, o código deveria ser mais é otimizado. p.s.: quebra um galho enorme e é todo funcional!!!
 
 ## Como criar uma versão do jogo?
 *
 
 ## Para escrever:
-* Terminar as TAREFAS!!
 * Como criar uma versão do jogo?
 * ...
 
