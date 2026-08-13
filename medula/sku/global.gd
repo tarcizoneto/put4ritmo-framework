@@ -315,10 +315,10 @@ func load_save():
 			progressDifficulty[i] = 'm'
 		
 		songlist = ['dummy3'] # músc
-		cupomLista = 10
-		cupomMusica = 150
-		mariedas = 1000
-		totems = {'ygona': 10}
+		cupomLista = 0
+		cupomMusica = 0
+		mariedas = 0
+		totems = {'ygona': 0}
 		customNote = 'maria1'
 		customNotesBought = ['maria1','tulla1'] # aquisições defaults
 		store_save()
