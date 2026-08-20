@@ -64,7 +64,7 @@ var currentTasks = [dummyTask, dummyTask, dummyTask]
 func returnRandomTask():
 	
 	randomize()
-	var randomTask = tasksDatabase[round(rand_range(0, tasksDatabase.size()-1))]
+	var randomTask = tasksDatabase[round(randf_range(0, tasksDatabase.size()-1))]
 	var task = {
 	'type': 'none',
 	'amount': 0,
@@ -77,9 +77,9 @@ func returnRandomTask():
 	match randomTask:
 		'points':
 			task.type = 'points'
-			task.amount = 50000*round(rand_range(2, 4))
+			task.amount = 50000*round(randf_range(2, 4))
 			task.reward = 'totem_ygona'
-			task.rewardAmount = round(rand_range(1, 3))
+			task.rewardAmount = round(randf_range(1, 3))
 			task.phrase = 'Consiga '+str(task.amount)+ ' pontos'
 			return task
 		'playsong':
@@ -87,42 +87,42 @@ func returnRandomTask():
 			task.amount = 1
 			task.which = returnRandomSong()
 			task.reward = 'mariedas'
-			task.rewardAmount = 5*round(rand_range(4, 20))
+			task.rewardAmount = 5*round(randf_range(4, 20))
 			task.phrase = 'Jogue a música '+database[task.which].Title + ' e alcance mais de 3 estrelas'
 			return task
 		'spend':
 			task.type = 'spend'
-			task.amount = 5*round(rand_range(10, 30))
+			task.amount = 5*round(randf_range(10, 30))
 			task.reward = 'cupom_musica'
-			task.rewardAmount = round(rand_range(1, 6))
+			task.rewardAmount = round(randf_range(1, 6))
 			task.phrase = 'Gaste '+str(task.amount)+ ' maricoins em qualquer coisa'
 			return task
 		'stars':
 			task.type = 'stars'
-			task.amount = 5*round(rand_range(2, 5))
+			task.amount = 5*round(randf_range(2, 5))
 			task.reward = 'totem_ygona'
-			task.rewardAmount = round(rand_range(1, 3))
+			task.rewardAmount = round(randf_range(1, 3))
 			task.phrase = 'Consiga '+str(task.amount)+ ' estrelas'
 			return task
 		'usetotem':
 			task.type = 'usetotem'
-			task.amount = round(rand_range(2, 6))
+			task.amount = round(randf_range(2, 6))
 			task.reward = 'mariedas'
-			task.rewardAmount = 5*round(rand_range(10, 15))
+			task.rewardAmount = 5*round(randf_range(10, 15))
 			task.phrase = 'Use '+str(task.amount)+ ' totem(ns) da Ygona'
 			return task
 		'getcupom':
 			task.type = 'getcupom'
-			task.amount = 5*round(rand_range(2, 4))
+			task.amount = 5*round(randf_range(2, 4))
 			task.reward = 'mariedas'
-			task.rewardAmount = 5*round(rand_range(3, 10))
+			task.rewardAmount = 5*round(randf_range(3, 10))
 			task.phrase = 'Consiga '+str(task.amount)+ ' fichas de música'
 			return task
 		'getmariedas':
 			task.type = 'getmariedas'
-			task.amount = 50*round(rand_range(2, 4))
+			task.amount = 50*round(randf_range(2, 4))
 			task.reward = 'cupom_musica'
-			task.rewardAmount = round(rand_range(3, 8))
+			task.rewardAmount = round(randf_range(3, 8))
 			task.phrase = 'Consiga '+str(task.amount)+ ' maricoins'
 			return task
 
@@ -148,7 +148,7 @@ func addProgressTask(type : String, progressAdd: int, song = null):
 	
 
 func returnRandomSong():
-	return database.keys()[round(rand_range(0, len(database.keys())-1))]
+	return database.keys()[round(randf_range(0, len(database.keys())-1))]
 
 func loadAllSongAudios():
 	for i in database.keys():
@@ -183,10 +183,9 @@ func fixDatabaseInfo_UsingIni():
 		
 		var chartDict = {}
 		var file = 'res://songs/'+i+'/song.ini'
-		var f = File.new()
-		if not f.file_exists(file):
+		if not FileAccess.file_exists(file):
 			continue
-		f.open(file, File.READ)
+		var f = FileAccess.open(file, FileAccess.READ)
 	# warning-ignore:unused_variable
 		var index = 1
 		while not f.eof_reached(): # iterate through all lines until the end of file is reached
@@ -227,7 +226,7 @@ func fixDatabaseInfo_UsingIni():
 		
 		if preview == null:
 			randomize()
-			preview = rand_range(0, 30)
+			preview = randf_range(0, 30)
 		
 		var nonfixed = database[i]
 		nonfixed.Title = title
@@ -272,12 +271,11 @@ var saveDictTEMPLATE = saveDict
 var save_file = "user://user.save"
 
 func load_save():
-	var f = File.new()
-	if f.file_exists(save_file):
-		f.open(save_file, File.READ)
+	if FileAccess.file_exists(save_file):
+		var f = FileAccess.open(save_file, FileAccess.READ)
 		saveDict = f.get_var()
 		print('carreguei')
-		if typeof(saveDict) != 18:
+		if typeof(saveDict) != TYPE_DICTIONARY:
 			print('save burlado')
 			savedictisnulo()
 			return
@@ -310,11 +308,10 @@ func load_save():
 		store_save()
 	else: # definindo o primeiro save, tudo que você quiser que comece com o jogador, defina aqui
 		print('[load_save] first time')
+		songlist = ['dummy3'] # músc
 		for i in songlist:
 			hiscores[i] = 0
 			progressDifficulty[i] = 'm'
-		
-		songlist = ['dummy3'] # músc
 		cupomLista = 0
 		cupomMusica = 0
 		mariedas = 0
@@ -334,8 +331,10 @@ func savedictisnulo():
 	store_save()
 
 func store_save():
-	var f = File.new()
-	f.open(save_file, File.WRITE)
+	var f = FileAccess.open(save_file, FileAccess.WRITE)
+	if f == null:
+		push_error("Could not open save file for writing: " + error_string(FileAccess.get_open_error()))
+		return
 	saveDict.hiscores = hiscores
 	saveDict.progressDifficulty = progressDifficulty
 	saveDict.songlist = songlist
@@ -345,7 +344,7 @@ func store_save():
 	saveDict.musicaPreco = musicaPreco
 	saveDict.totems = totems
 	saveDict.customNote = customNote
-	saveDict.customNoteBought = customNotesBought
+	saveDict.customNotesBought = customNotesBought
 	for i in songlist:
 		if ! i in hiscores:
 			hiscores[i] = 0
@@ -356,7 +355,9 @@ func store_save():
 	f.close()
 
 func break_save():
-	var f = File.new()
-	f.open(save_file, File.WRITE)
+	var f = FileAccess.open(save_file, FileAccess.WRITE)
+	if f == null:
+		push_error("Could not open save file for writing: " + error_string(FileAccess.get_open_error()))
+		return
 	f.store_var(0)
 	f.close()

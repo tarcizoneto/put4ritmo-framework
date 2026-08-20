@@ -1,22 +1,23 @@
 [gd_scene load_steps=14 format=2]
 
-[ext_resource path="res://medula/fonts/GothamMedium.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://medula/tex/note_frame.png" type="Texture" id=2]
+[ext_resource path="res://medula/fonts/GothamMedium.ttf" type="FontFile" id=1]
+[ext_resource path="res://medula/tex/note_frame.png" type="Texture2D" id=2]
 [ext_resource path="res://medula/scenes/ShopNote.gd" type="Script" id=3]
-[ext_resource path="res://medula/tex/selected.png" type="Texture" id=4]
-[ext_resource path="res://medula/tex/custom/notes/maria1.png" type="Texture" id=5]
+[ext_resource path="res://medula/tex/selected.png" type="Texture2D" id=4]
+[ext_resource path="res://medula/tex/custom/notes/maria1.png" type="Texture2D" id=5]
+[ext_resource path="res://medula/tex/mariedas.png" type="Texture2D" id=6]
 
 [sub_resource type="Animation" id=2]
 length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath("CustomNote:rect_rotation")
+tracks/0/path = NodePath("CustomNote:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ 0.0 ]
 }
@@ -26,23 +27,19 @@ resource_name = "disabled"
 loop = true
 step = 0.01
 tracks/0/type = "value"
-tracks/0/path = NodePath("CustomNote:rect_rotation")
+tracks/0/path = NodePath("CustomNote:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.06, 0.13, 0.19, 0.23, 0.28, 0.35, 0.46, 0.51, 0.57, 0.62, 0.67, 0.74, 0.81, 0.9, 0.97 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PackedFloat32Array( 0, 0.06, 0.13, 0.19, 0.23, 0.28, 0.35, 0.46, 0.51, 0.57, 0.62, 0.67, 0.74, 0.81, 0.9, 0.97 ),
+"transitions": PackedFloat32Array( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
 "values": [ 0.0, -1.9, 0.5, -3.8, -0.6, 2.9, -4.6, 5.4, -2.8, 0.7, -3.2, 2.6, -2.9, 3.0, -4.1, 3.0 ]
 }
 
-[sub_resource type="StreamTexture" id=50]
-flags = 4
-load_path = "res://.import/mariedas.png-fa371311bb61095c3bb82394cec935db.stex"
-
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="FontFile" id=3]
 size = 50
 outline_size = 7
 outline_color = Color( 0, 0, 0, 1 )
@@ -51,14 +48,14 @@ font_data = ExtResource( 1 )
 [sub_resource type="Animation" id=49]
 length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:rect_scale")
+tracks/0/path = NodePath(".:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ Vector2( 1, 1 ) ]
 }
@@ -66,14 +63,14 @@ tracks/0/keys = {
 [sub_resource type="Animation" id=48]
 resource_name = "select"
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:rect_scale")
+tracks/0/path = NodePath(".:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 0.183011, 1 ),
+"times": PackedFloat32Array( 0, 1 ),
+"transitions": PackedFloat32Array( 0.183011, 1 ),
 "update": 0,
 "values": [ Vector2( 4, 4 ), Vector2( 1, 1 ) ]
 }
@@ -87,8 +84,8 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
@@ -102,17 +99,17 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 0, 1 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
 [node name="ShopNote" type="TextureButton"]
-margin_right = 464.0
-margin_bottom = 464.0
-rect_min_size = Vector2( 464, 464 )
-rect_pivot_offset = Vector2( 232, 232 )
+offset_right = 464.0
+offset_bottom = 464.0
+custom_minimum_size = Vector2( 464, 464 )
+pivot_offset = Vector2( 232, 232 )
 mouse_filter = 1
 texture_normal = ExtResource( 2 )
 expand = true
@@ -125,12 +122,12 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -796.0
-margin_top = -308.0
-margin_right = 796.0
-margin_bottom = 308.0
-rect_scale = Vector2( 0.908, 0.908 )
-rect_pivot_offset = Vector2( 796, 308 )
+offset_left = -796.0
+offset_top = -308.0
+offset_right = 796.0
+offset_bottom = 308.0
+scale = Vector2( 0.908, 0.908 )
+pivot_offset = Vector2( 796, 308 )
 mouse_filter = 2
 texture = ExtResource( 5 )
 stretch_mode = 4
@@ -145,9 +142,9 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -232.0
-margin_top = -89.0
-margin_right = 232.0
+offset_left = -232.0
+offset_top = -89.0
+offset_right = 232.0
 mouse_filter = 1
 color = Color( 0, 0, 0, 0.776471 )
 
@@ -156,12 +153,12 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -83.0
-margin_top = -83.0
-margin_right = -8.0
-margin_bottom = -8.0
-rect_pivot_offset = Vector2( 56, 56 )
-texture = SubResource( 50 )
+offset_left = -83.0
+offset_top = -83.0
+offset_right = -8.0
+offset_bottom = -8.0
+pivot_offset = Vector2( 56, 56 )
+texture = ExtResource( 6 )
 expand = true
 
 [node name="Price" type="Label" parent="."]
@@ -169,11 +166,11 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -441.0
-margin_top = -75.0
-margin_right = -90.0
-rect_pivot_offset = Vector2( 135, 37 )
-custom_fonts/font = SubResource( 3 )
+offset_left = -441.0
+offset_top = -75.0
+offset_right = -90.0
+pivot_offset = Vector2( 135, 37 )
+theme_override_fonts/font = SubResource( 3 )
 text = "500"
 align = 2
 valign = 1
@@ -181,9 +178,9 @@ valign = 1
 [node name="Selected" type="TextureRect" parent="."]
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -100.0
-margin_bottom = 100.0
-rect_pivot_offset = Vector2( 100, 0 )
+offset_left = -100.0
+offset_bottom = 100.0
+pivot_offset = Vector2( 100, 0 )
 texture = ExtResource( 4 )
 expand = true
 

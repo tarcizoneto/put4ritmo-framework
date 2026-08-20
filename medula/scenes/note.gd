@@ -9,21 +9,25 @@ var timetonext = 0
 var active = true
 var perdeu = false
 var isAnotherNoteOver = 0
+var movement_tween: Tween
 
 func _ready():
-	$Tween.interpolate_property(self, 'rect_position', Vector2(0,0), Vector2(0,1845), time, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
-	$Tween.start()
+	if movement_tween and movement_tween.is_valid():
+		movement_tween.kill()
+	movement_tween = create_tween().set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_IN_OUT)
+	movement_tween.tween_property(self, "position", Vector2(0, 1845), time).from(Vector2.ZERO)
+	movement_tween.finished.connect(_on_Tween_tween_all_completed)
 	if timetonext >0:
 		if ! global.database[global.codename].hard:
-			rect_scale.y = .5
+			scale.y = .5
 			print('loww')
 
 # Called when the node enters the scene tree for the first time.
 func setup():
-	$duration.rect_size.y = dur
-	$duration.rect_size.x = self.rect_size.x/3
-	$duration.rect_position.y = -dur
-	$duration.rect_position.x = rect_size.x/2 - $duration.rect_size.x/2
+	$duration.size.y = dur
+	$duration.size.x = self.size.x/3
+	$duration.position.y = -dur
+	$duration.position.x = size.x/2 - $duration.size.x/2
 
 
 func _on_Area2D_area_entered(area):
@@ -33,7 +37,7 @@ func _on_Area2D_area_entered(area):
 				isAnotherNoteOver = 1
 			else:
 				isAnotherNoteOver = 0
-				rect_scale.y = 0.75
+				scale.y = 0.75
 	if area.name == 'good':
 		feedbackNow = 0.5
 	elif area.name == 'perf':
@@ -59,8 +63,11 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 
 func lost():
 	$AnimationPlayer.play("fail")
-	$Tween.interpolate_property(self, 'rect_position', rect_position, Vector2(360-rect_size.x,780-rect_size.y/2), 0.5, Tween.TRANS_EXPO, Tween.EASE_OUT)
-	$Tween.start()
+	if movement_tween and movement_tween.is_valid():
+		movement_tween.kill()
+	movement_tween = create_tween().set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_OUT)
+	movement_tween.tween_property(self, "position", Vector2(360 - size.x, 780 - size.y / 2), 0.5)
+	movement_tween.finished.connect(_on_Tween_tween_all_completed)
 	
 
 #henrique tava escutando musica de c1r se amostrando aqui no quarto 21/08/22
@@ -76,7 +83,8 @@ func lost():
 
 func on_TouchScreenButton_pressed():
 	if active:
-		$Tween.stop_all()
+		if movement_tween and movement_tween.is_valid():
+			movement_tween.kill()
 		if feedbackNow == 1:
 			get_parent().get_parent().get_parent().perfect()
 			$AnimationPlayer.play("perfect")

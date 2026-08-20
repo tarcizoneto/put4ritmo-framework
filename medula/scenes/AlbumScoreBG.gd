@@ -16,7 +16,7 @@ var cupomListaAmount = 0
 
 func _ready():
 	if get_viewport_rect().size.y > 1920:
-		$Cover.rect_scale = Vector2(get_viewport_rect().size.y/1920, get_viewport_rect().size.y/1920)
+		$Cover.scale = Vector2(get_viewport_rect().size.y/1920, get_viewport_rect().size.y/1920)
 	$AnimationPlayer.play("enter")
 	randomize()
 	#color = Color(rand_range(0, .35),rand_range(0, .35),rand_range(0, .35))
@@ -29,16 +29,16 @@ func _ready():
 	newStyleBoxPlayNormal.border_color = global.defaultColors[0]
 	newStyleBoxPlayPressed.border_color = global.defaultColors[1]
 	
-	$ContinueHolder/Continue.add_stylebox_override("normal", newStyleBoxPlayNormal)
-	$ContinueHolder/Continue.add_stylebox_override("pressed", newStyleBoxPlayPressed)
-	$ContinueHolder/Continue.add_stylebox_override("hover", newStyleBoxPlayPressed)
+	$ContinueHolder/Continue.add_theme_stylebox_override("normal", newStyleBoxPlayNormal)
+	$ContinueHolder/Continue.add_theme_stylebox_override("pressed", newStyleBoxPlayPressed)
+	$ContinueHolder/Continue.add_theme_stylebox_override("hover", newStyleBoxPlayPressed)
 	
 	var currentSonginScore = 0
 	for score in global.albumModeScores:
-		var newSongTitle = preSongTitleforScore.instance()
+		var newSongTitle = preSongTitleforScore.instantiate()
 		newSongTitle.text = global.database[global.songlistInOrder[currentSonginScore]].Title + ' — ' + global.database[global.songlistInOrder[currentSonginScore]].Artist
 		$ScrollContainer/ScoresVBoxContainer.add_child(newSongTitle)
-		var newScoreBar = preScoreBar.instance()
+		var newScoreBar = preScoreBar.instantiate()
 		newScoreBar.score = score
 		$ScrollContainer/ScoresVBoxContainer.add_child(newScoreBar)
 		currentSonginScore += 1
@@ -76,7 +76,7 @@ func _on_Continue_pressed():
 func _on_Tween_tween_all_completed():
 	$ContinueHolder/AnimationPlayer.play("main")
 	$SURTOCHEER.play('main')
-	add_child(trofeu.instance())
+	add_child(trofeu.instantiate())
 	$TrofeuShowTimer.start()
 	$HBoxContainer/Mariedas/anim.stop(true)
 	$HBoxContainer/CupomMusicaHolder/anim.stop()
@@ -106,4 +106,4 @@ func _on_PlayAgain_pressed():
 
 
 func _on_TrofeuShowTimer_timeout():
-	add_child(trofeu.instance())
+	add_child(trofeu.instantiate())

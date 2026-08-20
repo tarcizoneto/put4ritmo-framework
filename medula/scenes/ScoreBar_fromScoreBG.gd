@@ -4,6 +4,7 @@ var currentStar = 0
 var currentMarieda = 0
 var reachedLista = false
 var score = 50000
+var active_score_tween: Tween
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -14,7 +15,7 @@ var score = 50000
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	
-	if $Tween.is_active():
+	if active_score_tween and active_score_tween.is_running():
 		$ScoreLabel.text = str(int(value))
 		
 		if value >= 1000*currentMarieda:
@@ -67,9 +68,9 @@ func _process(delta):
 		
 		
 func score_tween():
-	$Tween.interpolate_property(self, 'value', 0, global.score, 7, Tween.TRANS_QUART, Tween.EASE_OUT)
-	
-	$Tween.start()
+	active_score_tween = create_tween().set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_OUT)
+	active_score_tween.tween_property(self, "value", global.score, 7).from(0.0)
+	active_score_tween.finished.connect(_on_Tween_tween_all_completed)
 	$Riser.play()
 
 

@@ -6,14 +6,15 @@
 ;   [section] ; section goes between []
 ;   param=value ; assign values to parameters
 
-config_version=4
+config_version=5
 
 [application]
 
 config/name="Put4Ritmo: AlbumName"
 run/main_scene="res://medula/scenes/Menu.tscn"
+config/features=PackedStringArray("4.7")
+boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/image="res://medula/tex/p4s_white.png"
-boot_splash/bg_color=Color( 0, 0, 0, 1 )
 config/icon="res://icon.png"
 
 [autoload]
@@ -23,11 +24,10 @@ ch2json="*res://medula/sku/SCRIPTch2json.gd"
 
 [display]
 
-window/size/width=1080
-window/size/height=1920
-window/handheld/orientation="portrait"
+window/size/viewport_width=1080
+window/size/viewport_height=1920
 window/stretch/mode="2d"
-window/stretch/aspect="keep"
+window/handheld/orientation="portrait"
 
 [global]
 
@@ -62,4 +62,3 @@ common/enable_pause_aware_picking=true
 
 quality/driver/driver_name="GLES2"
 vram_compression/import_etc=true
-vram_compression/import_etc2=false

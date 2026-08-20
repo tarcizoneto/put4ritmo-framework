@@ -9,8 +9,8 @@ var totempre = preload('res://medula/scenes/TotemUnlock.tscn')
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$NewMusicBG/AlbumBG/Info.get_font("font").outline_color = global.defaultColors[1]
-	$NewMusicBG/AlbumBG/Artist.get_font("font").outline_color = global.defaultColors[0]
+	$NewMusicBG/AlbumBG/Info.add_theme_color_override("font_outline_color", global.defaultColors[1])
+	$NewMusicBG/AlbumBG/Artist.add_theme_color_override("font_outline_color", global.defaultColors[0])
 	$VersusMode/Label.text = 'Modo '+global.ALBUM
 	$VersusMode.show()
 	$UpgradesBG.visible=false
@@ -34,13 +34,13 @@ func sortcovers():
 
 func newmusic():
 	randomize()
-	if rand_range(0, 1) >= 0.5:
+	if randf_range(0, 1) >= 0.5:
 		global.musicaPreco += 5
 	
-	var randomsong = global.database.keys()[round(rand_range(0, len(global.database.keys())-1))]
+	var randomsong = global.database.keys()[round(randf_range(0, len(global.database.keys())-1))]
 	while true:
 		if randomsong in global.songlist:
-			randomsong = global.database.keys()[round(rand_range(0, len(global.database.keys())-1))]
+			randomsong = global.database.keys()[round(randf_range(0, len(global.database.keys())-1))]
 		else:
 			global.songlist.append(randomsong)
 			global.codename = randomsong
@@ -130,7 +130,7 @@ func buyTotem(totem, price):
 		global.totems[totem] += 1
 		
 		
-		add_child(totempre.instance())
+		add_child(totempre.instantiate())
 		$Buy.play()
 		global.store_save()
 		get_parent().reloadInfo(false)

@@ -1,9 +1,9 @@
-[gd_resource type="AudioBusLayout" load_steps=2 format=2]
+[gd_resource type="AudioBusLayout" format=3 uid="uid://depbsu1ig0b2p"]
 
-[sub_resource type="AudioEffectSpectrumAnalyzer" id=1]
+[sub_resource type="AudioEffectSpectrumAnalyzer" id="1"]
 resource_name = "SpectrumAnalyzer"
 
 [resource]
 bus/0/volume_db = -0.130497
-bus/0/effect/0/effect = SubResource( 1 )
+bus/0/effect/0/effect = SubResource("1")
 bus/0/effect/0/enabled = true

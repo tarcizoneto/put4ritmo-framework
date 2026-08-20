@@ -1,27 +1,30 @@
 [gd_scene load_steps=45 format=2]
 
-[ext_resource path="res://medula/fonts/GothamMedium.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://medula/tex/star.png" type="Texture" id=2]
+[ext_resource path="res://medula/fonts/GothamMedium.ttf" type="FontFile" id=1]
+[ext_resource path="res://medula/tex/star.png" type="Texture2D" id=2]
 [ext_resource path="res://medula/sfx/rising.mp3" type="AudioStream" id=3]
 [ext_resource path="res://medula/sfx/firework_achieve.mp3" type="AudioStream" id=4]
 [ext_resource path="res://medula/sfx/applause.mp3" type="AudioStream" id=5]
 [ext_resource path="res://medula/sfx/ohpalhaca.mp3" type="AudioStream" id=6]
 [ext_resource path="res://medula/sfx/star_achieve.mp3" type="AudioStream" id=7]
 [ext_resource path="res://medula/scenes/ScoreBG.gd" type="Script" id=8]
+[ext_resource path="res://medula/tex/cupom_lista.png" type="Texture2D" id=9]
+[ext_resource path="res://medula/tex/cupom_musica.png" type="Texture2D" id=10]
+[ext_resource path="res://medula/tex/mariedas.png" type="Texture2D" id=11]
 
 [sub_resource type="Animation" id=28]
 resource_name = "leftnright"
 length = 60.0
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:rect_position")
+tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 30 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 0, 30 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "update": 0,
 "values": [ Vector2( 0, 0 ), Vector2( -840, 0 ) ]
 }
@@ -43,32 +46,32 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath(".:rect_scale")
+tracks/1/path = NodePath(".:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ Vector2( 1, 1 ) ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath(".:rect_rotation")
+tracks/2/path = NodePath(".:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ 0.0 ]
 }
@@ -82,32 +85,32 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath(".:rect_scale")
+tracks/1/path = NodePath(".:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 0.287175, 1 ),
+"times": PackedFloat32Array( 0, 1 ),
+"transitions": PackedFloat32Array( 0.287175, 1 ),
 "update": 0,
 "values": [ Vector2( 1.5, 1.5 ), Vector2( 1, 1 ) ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath(".:rect_rotation")
+tracks/2/path = NodePath(".:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.7 ),
-"transitions": PoolRealArray( 2.54912, 1 ),
+"times": PackedFloat32Array( 0, 0.7 ),
+"transitions": PackedFloat32Array( 2.54912, 1 ),
 "update": 0,
 "values": [ 0.0, 360.0 ]
 }
@@ -121,32 +124,32 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath(".:rect_scale")
+tracks/1/path = NodePath(".:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ Vector2( 1, 1 ) ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath(".:rect_rotation")
+tracks/2/path = NodePath(".:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ 0.0 ]
 }
@@ -160,32 +163,32 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath(".:rect_scale")
+tracks/1/path = NodePath(".:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 0.287175, 1 ),
+"times": PackedFloat32Array( 0, 1 ),
+"transitions": PackedFloat32Array( 0.287175, 1 ),
 "update": 0,
 "values": [ Vector2( 1.5, 1.5 ), Vector2( 1, 1 ) ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath(".:rect_rotation")
+tracks/2/path = NodePath(".:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.7 ),
-"transitions": PoolRealArray( 2.54912, 1 ),
+"times": PackedFloat32Array( 0, 0.7 ),
+"transitions": PackedFloat32Array( 2.54912, 1 ),
 "update": 0,
 "values": [ 0.0, 360.0 ]
 }
@@ -199,32 +202,32 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath(".:rect_scale")
+tracks/1/path = NodePath(".:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ Vector2( 1, 1 ) ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath(".:rect_rotation")
+tracks/2/path = NodePath(".:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ 0.0 ]
 }
@@ -238,32 +241,32 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath(".:rect_scale")
+tracks/1/path = NodePath(".:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 0.287175, 1 ),
+"times": PackedFloat32Array( 0, 1 ),
+"transitions": PackedFloat32Array( 0.287175, 1 ),
 "update": 0,
 "values": [ Vector2( 1.5, 1.5 ), Vector2( 1, 1 ) ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath(".:rect_rotation")
+tracks/2/path = NodePath(".:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.7 ),
-"transitions": PoolRealArray( 2.54912, 1 ),
+"times": PackedFloat32Array( 0, 0.7 ),
+"transitions": PackedFloat32Array( 2.54912, 1 ),
 "update": 0,
 "values": [ 0.0, 360.0 ]
 }
@@ -277,32 +280,32 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath(".:rect_scale")
+tracks/1/path = NodePath(".:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ Vector2( 1, 1 ) ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath(".:rect_rotation")
+tracks/2/path = NodePath(".:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ 0.0 ]
 }
@@ -316,32 +319,32 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath(".:rect_scale")
+tracks/1/path = NodePath(".:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 0.287175, 1 ),
+"times": PackedFloat32Array( 0, 1 ),
+"transitions": PackedFloat32Array( 0.287175, 1 ),
 "update": 0,
 "values": [ Vector2( 1.5, 1.5 ), Vector2( 1, 1 ) ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath(".:rect_rotation")
+tracks/2/path = NodePath(".:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.7 ),
-"transitions": PoolRealArray( 2.54912, 1 ),
+"times": PackedFloat32Array( 0, 0.7 ),
+"transitions": PackedFloat32Array( 2.54912, 1 ),
 "update": 0,
 "values": [ 0.0, 360.0 ]
 }
@@ -355,32 +358,32 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath(".:rect_scale")
+tracks/1/path = NodePath(".:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ Vector2( 1, 1 ) ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath(".:rect_rotation")
+tracks/2/path = NodePath(".:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ 0.0 ]
 }
@@ -394,37 +397,37 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath(".:rect_scale")
+tracks/1/path = NodePath(".:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 0.287175, 1 ),
+"times": PackedFloat32Array( 0, 1 ),
+"transitions": PackedFloat32Array( 0.287175, 1 ),
 "update": 0,
 "values": [ Vector2( 1.5, 1.5 ), Vector2( 1, 1 ) ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath(".:rect_rotation")
+tracks/2/path = NodePath(".:rotation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.7 ),
-"transitions": PoolRealArray( 2.54912, 1 ),
+"times": PackedFloat32Array( 0, 0.7 ),
+"transitions": PackedFloat32Array( 2.54912, 1 ),
 "update": 0,
 "values": [ 0.0, 360.0 ]
 }
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="FontFile" id=2]
 size = 100
 outline_size = 6
 outline_color = Color( 0, 0, 0, 1 )
@@ -440,8 +443,8 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 1,
 "values": [ "good" ]
 }
@@ -452,20 +455,20 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 6.27667, 1 ),
+"times": PackedFloat32Array( 0, 1 ),
+"transitions": PackedFloat32Array( 6.27667, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath(".:rect_scale")
+tracks/2/path = NodePath(".:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 0.241484, 1 ),
+"times": PackedFloat32Array( 0, 1 ),
+"transitions": PackedFloat32Array( 0.241484, 1 ),
 "update": 0,
 "values": [ Vector2( 1.5, 1.5 ), Vector2( 1, 1 ) ]
 }
@@ -474,14 +477,14 @@ tracks/2/keys = {
 resource_name = "perfect"
 length = 0.1
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:rect_scale")
+tracks/0/path = NodePath(".:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1 ),
-"transitions": PoolRealArray( 0.31864, 1 ),
+"times": PackedFloat32Array( 0, 0.1 ),
+"transitions": PackedFloat32Array( 0.31864, 1 ),
 "update": 0,
 "values": [ Vector2( 1.5, 1.5 ), Vector2( 1, 1 ) ]
 }
@@ -495,8 +498,8 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ) ]
 }
@@ -507,8 +510,8 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ) ]
 }
@@ -523,8 +526,8 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 0.659754 ),
+"times": PackedFloat32Array( 0, 0.2 ),
+"transitions": PackedFloat32Array( 1, 0.659754 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
@@ -535,8 +538,8 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 4, 4.4 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PackedFloat32Array( 0, 4, 4.4 ),
+"transitions": PackedFloat32Array( 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
@@ -547,8 +550,8 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 3.9, 4.9 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PackedFloat32Array( 0, 3.9, 4.9 ),
+"transitions": PackedFloat32Array( 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
@@ -559,8 +562,8 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 5.7 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 5.7 ),
+"transitions": PackedFloat32Array( 1 ),
 "values": [ {
 "args": [  ],
 "method": "score_tween"
@@ -573,8 +576,8 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 0.378929, 1 ),
+"times": PackedFloat32Array( 0, 0.2 ),
+"transitions": PackedFloat32Array( 0.378929, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.215686 ) ]
 }
@@ -585,8 +588,8 @@ tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 0, 0.1, 3.3, 3.7 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PackedFloat32Array( 0, 0.1, 3.3, 3.7 ),
+"transitions": PackedFloat32Array( 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
@@ -597,8 +600,8 @@ tracks/6/loop_wrap = true
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/keys = {
-"times": PoolRealArray( 0.1, 3.5, 4 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PackedFloat32Array( 0.1, 3.5, 4 ),
+"transitions": PackedFloat32Array( 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
@@ -609,8 +612,8 @@ tracks/7/loop_wrap = true
 tracks/7/imported = false
 tracks/7/enabled = true
 tracks/7/keys = {
-"times": PoolRealArray( 0.0999999, 3.5, 4 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PackedFloat32Array( 0.0999999, 3.5, 4 ),
+"transitions": PackedFloat32Array( 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
@@ -624,8 +627,8 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 0, 0.5 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
@@ -636,20 +639,20 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.3, 1 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PackedFloat32Array( 0, 0.3, 1 ),
+"transitions": PackedFloat32Array( 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("ScoreBar:rect_position")
+tracks/2/path = NodePath("ScoreBar:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 0.5, 1 ),
-"transitions": PoolRealArray( 1, 0.31864, 1 ),
+"times": PackedFloat32Array( 0, 0.5, 1 ),
+"transitions": PackedFloat32Array( 1, 0.31864, 1 ),
 "update": 0,
 "values": [ Vector2( 57, 600 ), Vector2( 57, 1700 ), Vector2( 57, 1069 ) ]
 }
@@ -660,8 +663,8 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 0.6, 1 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PackedFloat32Array( 0, 0.6, 1 ),
+"transitions": PackedFloat32Array( 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
@@ -672,12 +675,12 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray(  ),
-"transitions": PoolRealArray(  ),
+"times": PackedFloat32Array(  ),
+"transitions": PackedFloat32Array(  ),
 "values": [  ]
 }
 
-[sub_resource type="DynamicFont" id=24]
+[sub_resource type="FontFile" id=24]
 size = 65
 font_data = ExtResource( 1 )
 
@@ -695,7 +698,7 @@ border_color = Color( 1, 1, 1, 1 )
 corner_radius_bottom_right = 256
 corner_radius_bottom_left = 256
 
-[sub_resource type="DynamicFont" id=36]
+[sub_resource type="FontFile" id=36]
 size = 55
 font_data = ExtResource( 1 )
 
@@ -708,20 +711,20 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath(".:rect_position")
+tracks/1/path = NodePath(".:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ Vector2( 203, 1514 ) ]
 }
@@ -732,8 +735,8 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ true ]
 }
@@ -744,8 +747,8 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ true ]
 }
@@ -759,8 +762,8 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.4 ),
-"transitions": PoolRealArray( 1.86607, 1 ),
+"times": PackedFloat32Array( 0, 0.4 ),
+"transitions": PackedFloat32Array( 1.86607, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
@@ -771,8 +774,8 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 1,
 "values": [ false ]
 }
@@ -783,18 +786,14 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 1,
 "values": [ false ]
 }
 
 [sub_resource type="Animation" id=9]
 resource_name = "main"
-
-[sub_resource type="StreamTexture" id=37]
-flags = 4
-load_path = "res://.import/cupom_lista.png-480034a0a9c94597ab0671e11eba8fc9.stex"
 
 [sub_resource type="Animation" id=20]
 length = 0.001
@@ -805,20 +804,20 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath(".:rect_scale")
+tracks/1/path = NodePath(".:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ Vector2( 1.5, 1.5 ) ]
 }
@@ -833,40 +832,36 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath(".:rect_scale")
+tracks/1/path = NodePath(".:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 0.164939, 1 ),
+"times": PackedFloat32Array( 0, 1 ),
+"transitions": PackedFloat32Array( 0.164939, 1 ),
 "update": 0,
 "values": [ Vector2( 1.5, 1.5 ), Vector2( 1, 1 ) ]
 }
-
-[sub_resource type="StreamTexture" id=38]
-flags = 4
-load_path = "res://.import/cupom_musica.png-2c7c603fac84634448396a4ebf74382d.stex"
 
 [sub_resource type="Animation" id=22]
 resource_name = "+1"
 length = 0.5
 tracks/0/type = "value"
-tracks/0/path = NodePath("CupomMusicaHolder/Up:rect_position")
+tracks/0/path = NodePath("CupomMusicaHolder/Up:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 0, 0.5 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "update": 0,
 "values": [ Vector2( -10.5, 150 ), Vector2( -10.5, 0 ) ]
 }
@@ -877,8 +872,8 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.1, 0.4, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PackedFloat32Array( 0, 0.1, 0.4, 0.5 ),
+"transitions": PackedFloat32Array( 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 0, 1, 0, 1 ), Color( 0, 1, 0, 1 ), Color( 1, 1, 1, 0 ) ]
 }
@@ -886,14 +881,14 @@ tracks/1/keys = {
 [sub_resource type="Animation" id=23]
 length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath("CupomMusicaHolder/Up:rect_position")
+tracks/0/path = NodePath("CupomMusicaHolder/Up:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ Vector2( -10.5, 150 ) ]
 }
@@ -904,8 +899,8 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ) ]
 }
@@ -979,11 +974,7 @@ if(is_hid(vec2(UV.x*pixel_size_x,UV.y*pixel_size_y),vec2(pixel_size_x,pixel_size
 
 [sub_resource type="ShaderMaterial" id=32]
 shader = SubResource( 31 )
-shader_param/corner_radius = 1
-
-[sub_resource type="StreamTexture" id=39]
-flags = 4
-load_path = "res://.import/mariedas.png-fa371311bb61095c3bb82394cec935db.stex"
+shader_parameter/corner_radius = 1
 
 [sub_resource type="Animation" id=34]
 resource_name = "+1"
@@ -995,20 +986,20 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PackedFloat32Array( 0, 0.5 ),
+"transitions": PackedFloat32Array( 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 0, 1, 0, 1 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Mariedas/Amount:rect_position")
+tracks/1/path = NodePath("Mariedas/Amount:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ Vector2( -21, 150 ) ]
 }
@@ -1022,20 +1013,20 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Mariedas/Amount:rect_position")
+tracks/1/path = NodePath("Mariedas/Amount:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PackedFloat32Array( 0 ),
+"transitions": PackedFloat32Array( 1 ),
 "update": 0,
 "values": [ Vector2( -21, 150 ) ]
 }
@@ -1043,7 +1034,7 @@ tracks/1/keys = {
 [node name="ScoreBG" type="ColorRect"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-rect_pivot_offset = Vector2( -1572, 447 )
+pivot_offset = Vector2( -1572, 447 )
 color = Color( 0, 0, 0, 1 )
 script = ExtResource( 8 )
 __meta__ = {
@@ -1057,10 +1048,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -540.0
-margin_top = -960.0
-margin_right = 1380.0
-margin_bottom = 959.999
+offset_left = -540.0
+offset_top = -960.0
+offset_right = 1380.0
+offset_bottom = 959.999
 expand = true
 
 [node name="anim" type="AnimationPlayer" parent="Cover"]
@@ -1073,78 +1064,76 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -483.0
-margin_top = 109.0
-margin_right = 481.0
-margin_bottom = 180.0
-custom_styles/fg = SubResource( 1 )
+offset_left = -483.0
+offset_top = 109.0
+offset_right = 481.0
+offset_bottom = 180.0
+theme_override_styles/fg = SubResource( 1 )
 max_value = 50000.0
 step = 1.0
 percent_visible = false
 
 [node name="Star1" type="ColorRect" parent="ScoreBar"]
-margin_left = 176.0
-margin_top = -32.0
-margin_right = 182.0
-margin_bottom = 68.0
+offset_left = 176.0
+offset_top = -32.0
+offset_right = 182.0
+offset_bottom = 68.0
 
 [node name="Star2" type="ColorRect" parent="ScoreBar"]
-margin_left = 347.0
-margin_top = -32.0
-margin_right = 353.0
-margin_bottom = 68.0
+offset_left = 347.0
+offset_top = -32.0
+offset_right = 353.0
+offset_bottom = 68.0
 
 [node name="Star3" type="ColorRect" parent="ScoreBar"]
-margin_left = 520.0
-margin_top = -32.0
-margin_right = 526.0
-margin_bottom = 68.0
+offset_left = 520.0
+offset_top = -32.0
+offset_right = 526.0
+offset_bottom = 68.0
 
 [node name="Star4" type="ColorRect" parent="ScoreBar"]
-margin_left = 689.0
-margin_top = -32.0
-margin_right = 695.0
-margin_bottom = 68.0
+offset_left = 689.0
+offset_top = -32.0
+offset_right = 695.0
+offset_bottom = 68.0
 
 [node name="Star5" type="ColorRect" parent="ScoreBar"]
-margin_left = 860.0
-margin_top = -32.0
-margin_right = 866.0
-margin_bottom = 68.0
+offset_left = 860.0
+offset_top = -32.0
+offset_right = 866.0
+offset_bottom = 68.0
 
 [node name="Star6" type="ColorRect" parent="ScoreBar"]
 visible = false
-margin_left = 888.0
-margin_top = 3.0
-margin_right = 894.0
-margin_bottom = 109.0
+offset_left = 888.0
+offset_top = 3.0
+offset_right = 894.0
+offset_bottom = 109.0
 color = Color( 0.407843, 0.929412, 0.984314, 1 )
 
 [node name="Star7" type="ColorRect" parent="ScoreBar"]
 visible = false
-margin_left = 917.0
-margin_top = -68.0
-margin_right = 923.0
-margin_bottom = 68.0
+offset_left = 917.0
+offset_top = -68.0
+offset_right = 923.0
+offset_bottom = 68.0
 color = Color( 0.603922, 0, 0, 1 )
 
 [node name="Star8" type="ColorRect" parent="ScoreBar"]
 visible = false
-margin_left = 955.0
-margin_top = 5.0
-margin_right = 963.0
-margin_bottom = 172.0
+offset_left = 955.0
+offset_top = 5.0
+offset_right = 963.0
+offset_bottom = 172.0
 color = Color( 0.266667, 1, 0, 1 )
-
-[node name="Tween" type="Tween" parent="ScoreBar"]
 
 [node name="1" type="TextureRect" parent="ScoreBar"]
 modulate = Color( 1, 1, 1, 0 )
-margin_left = 130.0
-margin_top = -122.0
-margin_right = 226.0
-margin_bottom = -26.0
-rect_pivot_offset = Vector2( 49, 52 )
+offset_left = 130.0
+offset_top = -122.0
+offset_right = 226.0
+offset_bottom = -26.0
+pivot_offset = Vector2( 49, 52 )
 texture = ExtResource( 2 )
 expand = true
 
@@ -1154,11 +1143,11 @@ anims/explode = SubResource( 11 )
 
 [node name="2" type="TextureRect" parent="ScoreBar"]
 modulate = Color( 1, 1, 1, 0 )
-margin_left = 302.0
-margin_top = -122.0
-margin_right = 398.0
-margin_bottom = -26.0
-rect_pivot_offset = Vector2( 49, 52 )
+offset_left = 302.0
+offset_top = -122.0
+offset_right = 398.0
+offset_bottom = -26.0
+pivot_offset = Vector2( 49, 52 )
 texture = ExtResource( 2 )
 expand = true
 
@@ -1168,11 +1157,11 @@ anims/explode = SubResource( 13 )
 
 [node name="3" type="TextureRect" parent="ScoreBar"]
 modulate = Color( 1, 1, 1, 0 )
-margin_left = 474.0
-margin_top = -122.0
-margin_right = 570.0
-margin_bottom = -26.0
-rect_pivot_offset = Vector2( 49, 52 )
+offset_left = 474.0
+offset_top = -122.0
+offset_right = 570.0
+offset_bottom = -26.0
+pivot_offset = Vector2( 49, 52 )
 texture = ExtResource( 2 )
 expand = true
 
@@ -1182,11 +1171,11 @@ anims/explode = SubResource( 15 )
 
 [node name="4" type="TextureRect" parent="ScoreBar"]
 modulate = Color( 1, 1, 1, 0 )
-margin_left = 643.0
-margin_top = -122.0
-margin_right = 739.0
-margin_bottom = -26.0
-rect_pivot_offset = Vector2( 49, 52 )
+offset_left = 643.0
+offset_top = -122.0
+offset_right = 739.0
+offset_bottom = -26.0
+pivot_offset = Vector2( 49, 52 )
 texture = ExtResource( 2 )
 expand = true
 
@@ -1196,11 +1185,11 @@ anims/explode = SubResource( 17 )
 
 [node name="5" type="TextureRect" parent="ScoreBar"]
 modulate = Color( 1, 1, 1, 0 )
-margin_left = 814.0
-margin_top = -122.0
-margin_right = 910.0
-margin_bottom = -26.0
-rect_pivot_offset = Vector2( 49, 52 )
+offset_left = 814.0
+offset_top = -122.0
+offset_right = 910.0
+offset_bottom = -26.0
+pivot_offset = Vector2( 49, 52 )
 texture = ExtResource( 2 )
 expand = true
 
@@ -1213,12 +1202,12 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -540.0
-margin_top = -361.0
-margin_right = 540.0
-margin_bottom = 4.0
-rect_pivot_offset = Vector2( 540, 65 )
-custom_fonts/font = SubResource( 2 )
+offset_left = -540.0
+offset_top = -361.0
+offset_right = 540.0
+offset_bottom = 4.0
+pivot_offset = Vector2( 540, 65 )
+theme_override_fonts/font = SubResource( 2 )
 text = "0"
 align = 1
 valign = 2
@@ -1239,10 +1228,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = 203.0
-margin_top = 1514.0
-margin_right = 877.0
-margin_bottom = 1646.0
+offset_left = 203.0
+offset_top = 1514.0
+offset_right = 877.0
+offset_bottom = 1646.0
 flat = true
 
 [node name="Continue" type="Button" parent="ContinueHolder"]
@@ -1250,13 +1239,13 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -337.0
-margin_top = -132.0
-margin_right = 337.0
-custom_fonts/font = SubResource( 24 )
-custom_styles/hover = SubResource( 26 )
-custom_styles/pressed = SubResource( 26 )
-custom_styles/normal = SubResource( 25 )
+offset_left = -337.0
+offset_top = -132.0
+offset_right = 337.0
+theme_override_fonts/font = SubResource( 24 )
+theme_override_styles/hover = SubResource( 26 )
+theme_override_styles/pressed = SubResource( 26 )
+theme_override_styles/normal = SubResource( 25 )
 disabled = true
 text = "CONTINUAR"
 
@@ -1265,14 +1254,14 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -337.0
-margin_top = 33.0
-margin_right = 357.0
-margin_bottom = 165.0
-custom_fonts/font = SubResource( 36 )
-custom_styles/hover = SubResource( 25 )
-custom_styles/pressed = SubResource( 25 )
-custom_styles/normal = SubResource( 26 )
+offset_left = -337.0
+offset_top = 33.0
+offset_right = 357.0
+offset_bottom = 165.0
+theme_override_fonts/font = SubResource( 36 )
+theme_override_styles/hover = SubResource( 25 )
+theme_override_styles/pressed = SubResource( 25 )
+theme_override_styles/normal = SubResource( 26 )
 disabled = true
 text = "JOGAR NOVAMENTE"
 
@@ -1290,13 +1279,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -79.5
-margin_top = 183.5
-margin_right = 79.5
-margin_bottom = 342.5
-rect_scale = Vector2( 1.5, 1.5 )
-rect_pivot_offset = Vector2( 79, 79 )
-texture = SubResource( 37 )
+offset_left = -79.5
+offset_top = 183.5
+offset_right = 79.5
+offset_bottom = 342.5
+scale = Vector2( 1.5, 1.5 )
+pivot_offset = Vector2( 79, 79 )
+texture = ExtResource( 9 )
 expand = true
 
 [node name="anim" type="AnimationPlayer" parent="CupomListaAchieved"]
@@ -1309,22 +1298,22 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -332.0
-margin_top = 279.0
-margin_right = -76.0
-margin_bottom = 535.0
-texture = SubResource( 38 )
+offset_left = -332.0
+offset_top = 279.0
+offset_right = -76.0
+offset_bottom = 535.0
+texture = ExtResource( 10 )
 expand = true
 
 [node name="Up" type="Label" parent="CupomMusicaHolder"]
 modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -10.5
-margin_top = 150.0
-margin_right = 266.5
-margin_bottom = 256.0
-custom_fonts/font = SubResource( 2 )
+offset_left = -10.5
+offset_top = 150.0
+offset_right = 266.5
+offset_bottom = 256.0
+theme_override_fonts/font = SubResource( 2 )
 text = "+1"
 align = 1
 valign = 2
@@ -1339,9 +1328,9 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -277.0
-margin_top = -106.0
-custom_fonts/font = SubResource( 2 )
+offset_left = -277.0
+offset_top = -106.0
+theme_override_fonts/font = SubResource( 2 )
 align = 2
 valign = 2
 
@@ -1351,10 +1340,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -299.5
-margin_top = -777.0
-margin_right = 299.5
-margin_bottom = -178.0
+offset_left = -299.5
+offset_top = -777.0
+offset_right = 299.5
+offset_bottom = -178.0
 expand = true
 
 [node name="CoverBG" type="ColorRect" parent="CoverDeco"]
@@ -1362,11 +1351,11 @@ visible = false
 show_behind_parent = true
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -299.5
-margin_right = 299.5
-margin_bottom = 599.0
-rect_scale = Vector2( 1.025, 1.025 )
-rect_pivot_offset = Vector2( 299, 299 )
+offset_left = -299.5
+offset_right = 299.5
+offset_bottom = 599.0
+scale = Vector2( 1.025, 1.025 )
+pivot_offset = Vector2( 299, 299 )
 color = Color( 0, 0, 0, 1 )
 
 [node name="Mariedas" type="TextureRect" parent="."]
@@ -1374,22 +1363,22 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = 61.0
-margin_top = 279.0
-margin_right = 317.0
-margin_bottom = 535.0
-texture = SubResource( 39 )
+offset_left = 61.0
+offset_top = 279.0
+offset_right = 317.0
+offset_bottom = 535.0
+texture = ExtResource( 11 )
 expand = true
 
 [node name="Up" type="Label" parent="Mariedas"]
 modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -138.5
-margin_top = 150.0
-margin_right = 138.5
-margin_bottom = 256.0
-custom_fonts/font = SubResource( 2 )
+offset_left = -138.5
+offset_top = 150.0
+offset_right = 138.5
+offset_bottom = 256.0
+theme_override_fonts/font = SubResource( 2 )
 text = "+1"
 align = 1
 valign = 2
@@ -1404,11 +1393,11 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -21.0
-margin_top = 150.0
-margin_right = 256.0
-margin_bottom = 256.0
-custom_fonts/font = SubResource( 2 )
+offset_left = -21.0
+offset_top = 150.0
+offset_right = 256.0
+offset_bottom = 256.0
+theme_override_fonts/font = SubResource( 2 )
 align = 2
 valign = 2
 
@@ -1429,7 +1418,6 @@ stream = ExtResource( 5 )
 stream = ExtResource( 6 )
 
 [connection signal="value_changed" from="ScoreBar" to="." method="_on_ScoreBar_value_changed"]
-[connection signal="tween_all_completed" from="ScoreBar/Tween" to="." method="_on_Tween_tween_all_completed"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="pressed" from="ContinueHolder/Continue" to="." method="_on_Continue_pressed"]
 [connection signal="pressed" from="ContinueHolder/PlayAgain" to="." method="_on_PlayAgain_pressed"]

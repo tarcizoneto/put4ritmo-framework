@@ -4,6 +4,7 @@ var currentStar = 0
 var tosummon = []
 var preMusicaCupom = preload("res://medula/scenes/CupomMusica.tscn")
 var cupommusicaAmount = 0
+var active_score_tween: Tween
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -11,10 +12,10 @@ var cupommusicaAmount = 0
 
 func _ready():
 	if get_viewport_rect().size.y > 1920:
-		$Cover.rect_scale = Vector2(get_viewport_rect().size.y/1920, get_viewport_rect().size.y/1920)
+		$Cover.scale = Vector2(get_viewport_rect().size.y/1920, get_viewport_rect().size.y/1920)
 	$AnimationPlayer.play("enter")
 	randomize()
-	color = Color(rand_range(0, .35),rand_range(0, .35),rand_range(0, .35))
+	color = Color(randf_range(0, .35),randf_range(0, .35),randf_range(0, .35))
 	$Cover.texture = load(global.returnpath('cover', global.codename))
 	$CoverDeco.texture = load(global.returnpath('cover', global.codename))
 	
@@ -26,82 +27,83 @@ func _ready():
 	
 	
 	
-	$ContinueHolder/Continue.add_stylebox_override("normal", newStyleBoxPlayNormal)
-	$ContinueHolder/Continue.add_stylebox_override("pressed", newStyleBoxPlayPressed)
-	$ContinueHolder/Continue.add_stylebox_override("hover", newStyleBoxPlayPressed)
-	$ContinueHolder/PlayAgain.add_stylebox_override("pressed", newStyleBoxPlayNormal)
-	$ContinueHolder/PlayAgain.add_stylebox_override("hover", newStyleBoxPlayNormal)
-	$ContinueHolder/PlayAgain.add_stylebox_override("normal", newStyleBoxPlayPressed)
+	$ContinueHolder/Continue.add_theme_stylebox_override("normal", newStyleBoxPlayNormal)
+	$ContinueHolder/Continue.add_theme_stylebox_override("pressed", newStyleBoxPlayPressed)
+	$ContinueHolder/Continue.add_theme_stylebox_override("hover", newStyleBoxPlayPressed)
+	$ContinueHolder/PlayAgain.add_theme_stylebox_override("pressed", newStyleBoxPlayNormal)
+	$ContinueHolder/PlayAgain.add_theme_stylebox_override("hover", newStyleBoxPlayNormal)
+	$ContinueHolder/PlayAgain.add_theme_stylebox_override("normal", newStyleBoxPlayPressed)
 
 func score_tween():
+	var duration = 1.0
 	if global.score >= 9000:
-		$ScoreBar/Tween.interpolate_property($ScoreBar, 'value', 0, global.score, 7, Tween.TRANS_QUART, Tween.EASE_OUT)
+		duration = 7.0
 	elif global.score < 9000 and global.score > 1000:
-		$ScoreBar/Tween.interpolate_property($ScoreBar, 'value', 0, global.score, 3, Tween.TRANS_QUART, Tween.EASE_OUT)
-	else:
-		$ScoreBar/Tween.interpolate_property($ScoreBar, 'value', 0, global.score, 1, Tween.TRANS_QUART, Tween.EASE_OUT)
-	$ScoreBar/Tween.start()
+		duration = 3.0
+	active_score_tween = create_tween().set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_OUT)
+	active_score_tween.tween_property($ScoreBar, "value", global.score, duration).from(0.0)
+	active_score_tween.finished.connect(_on_Tween_tween_all_completed)
 	$Mariedas/anim.play("+1")
 	$Riser.play()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if $ScoreBar/Tween.is_active():
+	if active_score_tween and active_score_tween.is_running():
 		$ScoreLabel/anim.stop()
 		$ScoreLabel.text = str(int($ScoreBar.value))
 		
 		if $ScoreBar.value >= 9000 and currentStar == 0:
 			$StarAchieve.play()
-			$ScoreBar/.get_node("1/anim").play("explode")
+			$ScoreBar.get_node("1/anim").play("explode")
 			currentStar += 1
 			tosummon.append('musica')
 			
-			var cupom = preMusicaCupom.instance()
+			var cupom = preMusicaCupom.instantiate()
 			cupom.initialPOS = Vector2(236,1024)
 			cupom.finalPOS = Vector2(357,1329)
 			cupom.duration = 2.34241
 			add_child(cupom)
 		if $ScoreBar.value >= 18000 and currentStar == 1:
 			$StarAchieve.play()
-			$ScoreBar/.get_node("2/anim").play("explode")
+			$ScoreBar.get_node("2/anim").play("explode")
 			currentStar += 1
 			tosummon.append('musica')
 			
-			var cupom = preMusicaCupom.instance()
+			var cupom = preMusicaCupom.instantiate()
 			cupom.initialPOS = Vector2(405,1024)
 			cupom.finalPOS = Vector2(357,1329)
 			cupom.duration = 2.34241
 			add_child(cupom)
 		if $ScoreBar.value >= 27000 and currentStar == 2:
 			$StarAchieve.play()
-			$ScoreBar/.get_node("3/anim").play("explode")
+			$ScoreBar.get_node("3/anim").play("explode")
 			currentStar += 1
 			tosummon.append('musica')
 			
-			var cupom = preMusicaCupom.instance()
+			var cupom = preMusicaCupom.instantiate()
 			cupom.initialPOS = Vector2(582,1024)
 			cupom.finalPOS = Vector2(357,1329)
 			cupom.duration = 2.34241
 			add_child(cupom)
 		if $ScoreBar.value >= 36000 and currentStar == 3:
 			$StarAchieve.play()
-			$ScoreBar/.get_node("4/anim").play("explode")
+			$ScoreBar.get_node("4/anim").play("explode")
 			currentStar += 1
 			tosummon.append('musica')
 			
-			var cupom = preMusicaCupom.instance()
+			var cupom = preMusicaCupom.instantiate()
 			cupom.initialPOS = Vector2(750,1024)
 			cupom.finalPOS = Vector2(357,1329)
 			cupom.duration = 2.34241
 			add_child(cupom)
 		if $ScoreBar.value >= 45000 and currentStar == 4:
 			$StarAchieve.play()
-			$ScoreBar/.get_node("5/anim").play("explode")
+			$ScoreBar.get_node("5/anim").play("explode")
 			currentStar += 1
 			tosummon.append('musica')
 			
-			var cupom = preMusicaCupom.instance()
+			var cupom = preMusicaCupom.instantiate()
 			cupom.initialPOS = Vector2(921,1024)
 			cupom.finalPOS = Vector2(357,1329)
 			cupom.duration = 2.34241
@@ -130,7 +132,7 @@ func _on_Continue_pressed():
 
 
 func _on_AnimationPlayer_animation_finished(anim_name):
-	if !$ScoreBar/Tween.is_active():
+	if not active_score_tween or not active_score_tween.is_running():
 		queue_free()
 
 

@@ -8,6 +8,12 @@ var Sync = preload("res://medula/scenes/SyncMenu.tscn")
 var longTitle = 0
 var tempSonglist = []
 var introRunning = false
+var title_tween: Tween
+var intro_tween: Tween
+
+func stop_title_tween():
+	if title_tween and title_tween.is_valid():
+		title_tween.kill()
 
 func _ready():
 	randomize()
@@ -35,17 +41,17 @@ func _ready():
 	newStyleBoxSonglistP.bg_color = lightColor_Darker
 	
 	
-	$Main/Play.add_stylebox_override("normal", newStyleBoxPlayNormal)
-	$Main/Songlist.add_stylebox_override("normal", newStyleBoxSonglist)
-	$Main/Play.add_stylebox_override("pressed", newStyleBoxPlayPressed)
-	$Main/Play.add_stylebox_override("hover", newStyleBoxPlayPressed)
-	$Main/Songlist.add_stylebox_override("pressed", newStyleBoxSonglistP)
-	$Main/Songlist.add_stylebox_override("hover", newStyleBoxSonglistP)
+	$Main/Play.add_theme_stylebox_override("normal", newStyleBoxPlayNormal)
+	$Main/Songlist.add_theme_stylebox_override("normal", newStyleBoxSonglist)
+	$Main/Play.add_theme_stylebox_override("pressed", newStyleBoxPlayPressed)
+	$Main/Play.add_theme_stylebox_override("hover", newStyleBoxPlayPressed)
+	$Main/Songlist.add_theme_stylebox_override("pressed", newStyleBoxSonglistP)
+	$Main/Songlist.add_theme_stylebox_override("hover", newStyleBoxSonglistP)
 	
 func reloadInfo(reloadSong = true, tosummon = []):
-	$Main/Title/Tween.stop_all()
-	$Main/Title.rect_size.x = 1080
-	$Main/Title.rect_position.x = 0
+	stop_title_tween()
+	$Main/Title.size.x = 1080
+	$Main/Title.position.x = 0
 	$CupomMusicaHolder/Amount.text = str(global.cupomMusica)
 	$CupomListaHolder/Amount.text = str(global.cupomLista)
 	$Mariedas/Amount.text = str(global.mariedas)
@@ -76,26 +82,26 @@ func reloadInfo(reloadSong = true, tosummon = []):
 			$Main/Medals/m.visible = false
 			$Main/Medals/h.visible = false
 			$Main/Difficulty.text = 'Normal'
-			$Main/Difficulty.add_color_override("font_outline_modulate", Color('a8a8a8'))
+			$Main/Difficulty.add_theme_color_override("font_outline_modulate", Color('a8a8a8'))
 			
 		'h': 
 			$Main/Medals/e.visible = true
 			$Main/Medals/m.visible = false
 			$Main/Medals/h.visible = false
 			$Main/Difficulty.text = 'Difícil'
-			$Main/Difficulty.add_color_override("font_outline_modulate", Color('ff9700'))
+			$Main/Difficulty.add_theme_color_override("font_outline_modulate", Color('ff9700'))
 		'x': 
 			$Main/Medals/e.visible = true 
 			$Main/Medals/m.visible = true
 			$Main/Medals/h.visible = false
 			#$Main/Difficulty.text = 'Extremo'
-			$Main/Difficulty.add_color_override("font_outline_modulate", Color(1, 0, 0, 1))
+			$Main/Difficulty.add_theme_color_override("font_outline_modulate", Color(1, 0, 0, 1))
 		'x2': 
 			$Main/Medals/e.visible = true 
 			$Main/Medals/m.visible = true
 			$Main/Medals/h.visible = true
 			$Main/Difficulty.text = 'Extremo'
-			$Main/Difficulty.add_color_override("font_outline_modulate", Color(1, 0, 0, 1))
+			$Main/Difficulty.add_theme_color_override("font_outline_modulate", Color(1, 0, 0, 1))
 	global.load_save()
 	if global.hiscores[global.codename] > 0:
 	
@@ -114,12 +120,12 @@ func reloadInfo(reloadSong = true, tosummon = []):
 		$Main/preview.stream_paused = false
 		$Main/preview.play(global.database[global.codename].preview)
 		$Main/PreviewTime.start()
-		$Main/Title/Tween.stop_all()
-		$Main/Title.rect_size.x = 1080
-		$Main/Title.rect_position.x = 0
+		stop_title_tween()
+		$Main/Title.size.x = 1080
+		$Main/Title.position.x = 0
 		if global.database[global.codename].hard:
 			$Main/Title/AnimationPlayer.play("hardSong")
-			$Main/Title/.text += ' (extrema)'
+			$Main/Title.text += ' (extrema)'
 		else:
 			$Main/Title/AnimationPlayer.play("normalSong")
 		
@@ -136,7 +142,7 @@ func albumModeInstance():
 	$Main/PreviewTime.stop()
 	$Main/preview.stop()
 	$Main/preview.stream_paused = true
-	gameplayInstance = gameplayScene.instance()
+	gameplayInstance = gameplayScene.instantiate()
 	gameplayInstance.codename = global.songlistInOrder[0]
 	gameplayInstance.ALBUMMODE = true
 	gameplayInstance.isParentofAlbumMode = true
@@ -147,13 +153,13 @@ func _on_Button_pressed():
 	$Main/PreviewTime.stop()
 	$Main/preview.stop()
 	$Main/preview.stream_paused = true
-	gameplayInstance = gameplayScene.instance()
+	gameplayInstance = gameplayScene.instantiate()
 	gameplayInstance.codename = global.codename
 	add_child(gameplayInstance)
 
 func remakeSonglist():
 	for i in global.songlist:
-		var song = songinsonglist.instance()
+		var song = songinsonglist.instantiate()
 		song.codename = i
 		$SonglistBG/ScrollContainer/VBoxContainer.add_child(song)
 
@@ -213,28 +219,29 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 
 func introLogoRunning(tf):
 	if introRunning and !tf:
-		$Intro/Tween.interpolate_property($Intro/Logo, 'rect_position', $Intro/Logo.rect_position, Vector2($Intro/Logo.rect_position.x, get_viewport_rect().size.y), 1.2, Tween.TRANS_EXPO, Tween.EASE_IN)
-		$Intro/Tween.start()
+		intro_tween = create_tween().set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_IN)
+		intro_tween.tween_property($Intro/Logo, "position", Vector2($Intro/Logo.position.x, get_viewport_rect().size.y), 1.2)
 	introRunning = tf
 
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if introRunning:
-		$Intro/Logo.rect_position = Vector2(get_viewport_rect().size.x/2-$Intro/Logo.rect_size.x/2, get_viewport_rect().size.y/2-$Intro/Logo.rect_size.y/2)
+	if introRunning and has_node("Intro/Logo"):
+		$Intro/Logo.position = Vector2(get_viewport_rect().size.x/2-$Intro/Logo.size.x/2, get_viewport_rect().size.y/2-$Intro/Logo.size.y/2)
 		
-	if $Main/Title.rect_size.x > 1080 and !$Main/Title/Tween.is_active():
+	if $Main/Title.size.x > 1080 and (not title_tween or not title_tween.is_running()):
 		if longTitle == 0:
-			$Main/Title/Tween.interpolate_property($Main/Title, "rect_position",  Vector2(0, $Main/Title.rect_position.y), Vector2(+(1080-$Main/Title.rect_size.x), $Main/Title.rect_position.y), 3, Tween.TRANS_LINEAR)
+			title_tween = create_tween().set_trans(Tween.TRANS_LINEAR)
+			title_tween.tween_property($Main/Title, "position", Vector2(1080 - $Main/Title.size.x, $Main/Title.position.y), 3).from(Vector2(0, $Main/Title.position.y))
 			longTitle = 1
 		else:
-			$Main/Title/Tween.interpolate_property($Main/Title, "rect_position",  Vector2(+(1080-$Main/Title.rect_size.x), $Main/Title.rect_position.y), Vector2(0, $Main/Title.rect_position.y), 3, Tween.TRANS_LINEAR)
+			title_tween = create_tween().set_trans(Tween.TRANS_LINEAR)
+			title_tween.tween_property($Main/Title, "position", Vector2(0, $Main/Title.position.y), 3).from(Vector2(1080 - $Main/Title.size.x, $Main/Title.position.y))
 			longTitle = 0
-		$Main/Title/Tween.start()
 			
 	if get_viewport_rect().size.y > 1920:
-		$Main/Cover.rect_scale = Vector2(get_viewport_rect().size.y/1920, get_viewport_rect().size.y/1920)
+		$Main/Cover.scale = Vector2(get_viewport_rect().size.y/1920, get_viewport_rect().size.y/1920)
 
 func _on_BackConfig_pressed():
 	$Config.hide()
@@ -246,7 +253,7 @@ func _on_Settings_pressed():
 
 
 func _on_Sync_pressed():
-	add_child(Sync.instance())
+	add_child(Sync.instantiate())
 	$Main/preview.volume_db = -99
 
 

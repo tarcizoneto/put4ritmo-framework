@@ -24,11 +24,13 @@ var finished = false
 var continueEvent = []
 var continueScore = 0
 var pausedLostTime = 0
-onready var customNoteTEX = load('res://medula/tex/custom/notes/'+global.customNote+'.png')
+@onready var customNoteTEX = load('res://medula/tex/custom/notes/'+global.customNote+'.png')
 
 var ALBUMMODE = false
 var isParentofAlbumMode = false
 var nextSongInitiated = false
+var intro_tween: Tween
+var cover_tween: Tween
 
 func instanceTransitions():
 	if !isParentofAlbumMode:
@@ -37,7 +39,7 @@ func instanceTransitions():
 		if song == global.songlistInOrder[0]:
 			continue
 		print('instancing '+song+' in album mode')
-		var gameplayInstance = load("res://medula/scenes/Gameplay.tscn").instance()
+		var gameplayInstance = load("res://medula/scenes/Gameplay.tscn").instantiate()
 		gameplayInstance.codename = song
 		gameplayInstance.get_node('Start').queue_free()
 		gameplayInstance.get_node('TotemYgona').queue_free()
@@ -63,7 +65,7 @@ func _ready():
 	
 	$song.stream = load(global.returnpath('song', codename))
 	global.currentSongfromAlbumMode = 0
-	$Perfect.rect_scale = Vector2(1, global.database[codename].bpm/120.0)
+	$Perfect.scale = Vector2(1, global.database[codename].bpm/120.0)
 	print(global.progressDifficulty[codename])
 	match global.progressDifficulty[codename]:
 		'm':
@@ -96,7 +98,7 @@ func _ready():
 	$BG/Cover_db.texture = load(global.returnpath('cover', codename))
 	$TotemYgona/Amount.text = str(global.totems.ygona)
 	if get_viewport_rect().size.y > 1920:
-		$BG/Cover_db.rect_scale = Vector2(get_viewport_rect().size.y/1920, get_viewport_rect().size.y/1920)
+		$BG/Cover_db.scale = Vector2(get_viewport_rect().size.y/1920, get_viewport_rect().size.y/1920)
 
 func load_chart(codename, section):
 	var currentValue = null
@@ -104,8 +106,7 @@ func load_chart(codename, section):
 # warning-ignore:unused_variable
 	var chartDict = {}
 	var file = 'res://songs/'+codename+'/'+'notes.chart'
-	var f = File.new()
-	f.open(file, File.READ)
+	var f = FileAccess.open(file, FileAccess.READ)
 # warning-ignore:unused_variable
 	var index = 1
 	while not f.eof_reached(): # iterate through all lines until the end of file is reached
@@ -182,8 +183,7 @@ func load_chartRANDOM(codename, section, chance):
 # warning-ignore:unused_variable
 	var chartDict = {}
 	var file = 'res://songs/'+codename+'/'+'notes.chart'
-	var f = File.new()
-	f.open(file, File.READ)
+	var f = FileAccess.open(file, FileAccess.READ)
 # warning-ignore:unused_variable
 	var index = 1
 	while not f.eof_reached(): # iterate through all lines until the end of file is reached
@@ -218,7 +218,7 @@ func load_chartRANDOM(codename, section, chance):
 			eventDict.dur = int(slippedEvent[-1])
 			eventDict.row = int(slippedEvent[-2])
 			#print(eventDict)
-			if rand_range(0,1) >= chance:
+			if randf_range(0,1) >= chance:
 				allEventsArray.append(eventDict)
 			#[, , 864, =, N, 2, 0]
 			#print(slippedEvent)
@@ -232,8 +232,8 @@ func load_chartRANDOM(codename, section, chance):
 func introLogoRunning(tf):
 	print(tf)
 	if introRunning and !tf:
-		$Out/Tween.interpolate_property($Out/Logo, 'rect_position', $Out/Logo.rect_position, Vector2($Out/Logo.rect_position.x, get_viewport_rect().size.y), 1.2, Tween.TRANS_EXPO, Tween.EASE_IN)
-		$Out/Tween.start()
+		intro_tween = create_tween().set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_IN)
+		intro_tween.tween_property($Out/Logo, "position", Vector2($Out/Logo.position.x, get_viewport_rect().size.y), 1.2)
 	introRunning = tf
 
 
@@ -242,7 +242,7 @@ func introLogoRunning(tf):
 # warning-ignore:unused_argument
 func _process(delta):
 	if introRunning:
-		$Out/Logo.rect_position = Vector2(get_viewport_rect().size.x/2-$Out/Logo.rect_size.x/2, get_viewport_rect().size.y/2-$Out/Logo.rect_size.y/2)
+		$Out/Logo.position = Vector2(get_viewport_rect().size.x/2-$Out/Logo.size.x/2, get_viewport_rect().size.y/2-$Out/Logo.size.y/2)
 		
 	
 	if totemBG == 0 and $Totem/AudioStreamPlayer.playing:
@@ -300,7 +300,7 @@ func instanceNote():
 #		print(events[currentEvent].dur)
 #		print('\n')
 	#print((timeMath))
-	var note = prenote.instance()
+	var note = prenote.instantiate()
 	#note.get_node("AnimationPlayer").play(str(0))
 	#note.dur = (events[currentEvent].dur/48) * ((60000/bpm)/2)
 	#note.setup()
@@ -320,12 +320,12 @@ func instanceNote():
 	var rownode = get_node('by'+str(rows)).get_node(str(events[currentEvent].row))
 	note.time = tobeat_timesec
 	note.row = events[currentEvent].row
-	note.rect_size.x = 360
-	note.rect_size.y = 360
+	note.size.x = 360
+	note.size.y = 360
 	note.currentEvent = currentEvent
 	note.get_node("CustomNote").texture = customNoteTEX
 	if 'scale' in global.database[codename]:
-		note.rect_scale.y = global.database[codename].scale
+		note.scale.y = global.database[codename].scale
 #	if currentEvent+1 <= events.size()-1:
 #		var timetonext = events[currentEvent+1].time - events[currentEvent].time
 #		if events[currentEvent+1].row == events[currentEvent].row and timetonext <= 192:
@@ -354,7 +354,10 @@ func _on_Button_pressed():
 	$Perfect/AnimationPlayer.play("show")
 
 func perfect():
-	$BG/Cover_db/Tween.interpolate_property($BG/Cover_db, 'modulate', Color(1,1,1,0.8), Color(1,1,1,0.3), 1, Tween.TRANS_QUART, Tween.EASE_OUT)
+	if cover_tween and cover_tween.is_valid():
+		cover_tween.kill()
+	cover_tween = create_tween().set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_OUT)
+	cover_tween.tween_property($BG/Cover_db, "modulate", Color(1, 1, 1, 0.3), 1).from(Color(1, 1, 1, 0.8))
 	$feedback/anim.stop(true)
 	$feedback/anim.play('perfect')
 func good():
@@ -386,9 +389,9 @@ func realLost():
 
 func createScoreInstance():
 	if ALBUMMODE:
-		$ScoreHolder.add_child(scoreAlbumModeScene.instance())
+		$ScoreHolder.add_child(scoreAlbumModeScene.instantiate())
 	else:
-		$ScoreHolder.add_child(scoreScene.instance())
+		$ScoreHolder.add_child(scoreScene.instantiate())
 
 func _on_song_finished():
 	print('tchau por aqui! terminou a música')
@@ -499,8 +502,10 @@ func _on_EndTimer_timeout():
 
 
 func _on_CoverChange_timeout():
-	$BG/Cover_db/Tween.interpolate_property($BG/Cover_db, 'modulate', $BG/Cover_db.modulate, Color(1,1,1,((AudioServer.get_bus_peak_volume_right_db(0, 0)/100.0)+0.25)*1.3), .15, Tween.TRANS_QUAD, Tween.EASE_OUT)
-	$BG/Cover_db/Tween.start()
+	if cover_tween and cover_tween.is_valid():
+		cover_tween.kill()
+	cover_tween = create_tween().set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	cover_tween.tween_property($BG/Cover_db, "modulate", Color(1, 1, 1, ((AudioServer.get_bus_peak_volume_right_db(0, 0) / 100.0) + 0.25) * 1.3), 0.15)
 
 
 
@@ -523,7 +528,7 @@ func _on_OKTotem_pressed():
 	totemBG = 2
 	global.addProgressTask('usetotem', 1)
 	$Totem/AnimationPlayer.play("longExit")
-	add_child(totempre.instance())
+	add_child(totempre.instantiate())
 	global.totems.ygona -= 1
 
 func moveOn():
@@ -548,10 +553,10 @@ func _on_Return_pressed():
 
 func sortTip():
 	randomize()
-	var sort = round(rand_range(0, len(global.tips)-1))
+	var sort = round(randf_range(0, len(global.tips)-1))
 	while true:
 		if sort == lastSort:
-			sort = round(rand_range(0, len(global.tips)-1))
+			sort = round(randf_range(0, len(global.tips)-1))
 		else:
 			break
 	$Out/Tips.text = 'você sabia que '+global.tips[sort]

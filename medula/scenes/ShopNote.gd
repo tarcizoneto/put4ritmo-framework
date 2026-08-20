@@ -1,7 +1,7 @@
 extends TextureButton
 
-export var noteName : String 
-export var price : int
+@export var noteName : String
+@export var price : int
 var bought = false
 var easter = false
 
